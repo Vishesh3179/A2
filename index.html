@@ -5,70 +5,152 @@
   <style>
     body {
       background-color: #f4f4f4; /* Light gray background */
-      font-family: sans-serif; 
+      font-family: Arial, Helvetica, sans-serif; /* Applied globally */
     }
     h1, h2 {
       text-align: center;
-      font-family: Arial, Helvetica, sans-serif; 
+    }
+    .graph-container {
+      border: 1px solid gray;
+      padding: 10px;
+      background-color: #e9e9e9; /* Light grey background for graph containers */
+      width: 45%;
+    }
+    .text-container {
+      border: 1px solid gray;
+      padding: 10px;
+      margin-top: 10px;
+      background-color: #ffffff; /* White background for text containers */
+      width: 45%;
+    }
+    .flex-container {
+      display: flex;
+      justify-content: space-around;
     }
   </style>
+  <!-- Vega and Vega-Lite libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 </head>
 <body>
   <h1>NDIS Funding Usage</h1>
 
   <h2>Section 1 Heading</h2>
-  <div style="display: flex; justify-content: space-around;"> 
-    <div style="border: 1px solid gray; padding: 10px;">
-      Graph 1 will go here
-    </div>
-    <div style="border: 1px solid gray; padding: 10px;">
-      Graph 2 will go here
-    </div>
+  <div class="flex-container"> 
+    <div class="graph-container" id="line-chart"></div>
+    <div class="graph-container" id="bar-chart"></div>
   </div>
-  <div style="display: flex; justify-content: space-around;">
-    <div style="border: 1px solid gray; padding: 10px; margin-top: 10px;">
+  <div class="flex-container">
+    <div class="text-container">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
     </div>
-    <div style="border: 1px solid gray; padding: 10px; margin-top: 10px;">
+    <div class="text-container">
       Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
     </div>
   </div>
 
   <h2>Section 2 Heading</h2>
-  <div style="display: flex; justify-content: space-around;"> 
-    <div style="border: 1px solid gray; padding: 10px;">
-      Graph 3 will go here
-    </div>
-    <div style="border: 1px solid gray; padding: 10px;">
-      Graph 4 will go here
-    </div>
-  </div>
-  <div style="display: flex; justify-content: space-around;">
-    <div style="border: 1px solid gray; padding: 10px; margin-top: 10px;">
-      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
-    </div>
-    <div style="border: 1px solid gray; padding: 10px; margin-top: 10px;">
-      Nisi ut aliquip ex ea commodo consequat. 
-    </div>
+  <div class="flex-container">
+    <div class="graph-container" id="map-chart"></div>
   </div>
 
-  <h2>Section 3 Heading</h2>
-  <div style="display: flex; justify-content: space-around;"> 
-    <div style="border: 1px solid gray; padding: 10px;">
-      Graph 5 will go here
-    </div>
-    <div style="border: 1px solid gray; padding: 10px;">
-      Graph 6 will go here
-    </div>
-  </div>
-  <div style="display: flex; justify-content: space-around;">
-    <div style="border: 1px solid gray; padding: 10px; margin-top: 10px;">
-      Duis aute irure dolor in reprehenderit in voluptate.
-    </div>
-    <div style="border: 1px solid gray; padding: 10px; margin-top: 10px;">
-      Excepteur sint occaecat cupidatat non proident. 
-    </div>
-  </div>
+  <!-- Vega-Lite Chart Configurations -->
+  <script>
+    // Line Chart Example (Dummy Data)
+    var lineChart = {
+      "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+      "description": "NDIS Funding Over Time",
+      "title": "NDIS Funding Over Time (2019-2024)",
+      "width": 300,
+      "height": 200,
+      "data": {
+        "values": [
+          {"year": 2019, "funding": 2000},
+          {"year": 2020, "funding": 3000},
+          {"year": 2021, "funding": 4000},
+          {"year": 2022, "funding": 3500},
+          {"year": 2023, "funding": 4200},
+          {"year": 2024, "funding": 4800}
+        ]
+      },
+      "mark": "line",
+      "encoding": {
+        "x": {"field": "year", "type": "temporal", "title": "Year"},
+        "y": {"field": "funding", "type": "quantitative", "title": "Funding (in $k)"}
+      }
+    };
 
+    // Bar Chart Example (Dummy Data)
+    var barChart = {
+      "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+      "description": "NDIS Service Access Distribution",
+      "title": "NDIS Service Access Distribution (2024)",
+      "width": 300,
+      "height": 200,
+      "data": {
+        "values": [
+          {"service": "Therapy", "access": 1800},
+          {"service": "Support Coordination", "access": 1200},
+          {"service": "Plan Management", "access": 1000},
+          {"service": "Accommodation", "access": 800}
+        ]
+      },
+      "mark": "bar",
+      "encoding": {
+        "x": {"field": "service", "type": "nominal", "title": "Service Type"},
+        "y": {"field": "access", "type": "quantitative", "title": "Number of People Accessing"}
+      }
+    };
+
+    // Map of Australia with NDIS funding access by state (Dummy Data)
+    var mapChart = {
+      "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+      "description": "Map of Australia with NDIS Funding Access by State",
+      "title": "NDIS Funding Access by State (2024)",
+      "width": 600,
+      "height": 400,
+      "projection": {"type": "mercator"},
+      "layer": [
+        {
+          "data": {
+            "url": "https://vega.github.io/vega-datasets/data/aus-10m.json",
+            "format": {"type": "topojson", "feature": "states"}
+          },
+          "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "white"}
+        },
+        {
+          "data": {
+            "values": [
+              {"state": "New South Wales", "access": 3200, "lat": -33.8688, "lon": 151.2093},
+              {"state": "Victoria", "access": 2800, "lat": -37.8136, "lon": 144.9631},
+              {"state": "Queensland", "access": 2200, "lat": -27.4698, "lon": 153.0251},
+              {"state": "Western Australia", "access": 1600, "lat": -31.9505, "lon": 115.8605},
+              {"state": "South Australia", "access": 1400, "lat": -34.9285, "lon": 138.6007},
+              {"state": "Tasmania", "access": 600, "lat": -42.8821, "lon": 147.3272},
+              {"state": "Northern Territory", "access": 400, "lat": -12.4634, "lon": 130.8456},
+              {"state": "Australian Capital Territory", "access": 200, "lat": -35.2809, "lon": 149.1300}
+            ]
+          },
+          "mark": "circle",
+          "encoding": {
+            "longitude": {"field": "lon", "type": "quantitative"},
+            "latitude": {"field": "lat", "type": "quantitative"},
+            "size": {"field": "access", "type": "quantitative", "title": "Access (Number of People)"},
+            "color": {"field": "access", "type": "quantitative", "title": "Access (Number of People)"},
+            "tooltip": [
+              {"field": "state", "type": "nominal", "title": "State"},
+              {"field": "access", "type": "quantitative", "title": "People Accessing Funding"}
+            ]
+          }
+        }
+      ]
+    };
+
+    // Embed the charts in the HTML divs
+    vegaEmbed('#line-chart', lineChart);
+    vegaEmbed('#bar-chart', barChart);
+    vegaEmbed('#map-chart', mapChart);
+  </script>
 </body>
 </html>
