@@ -4,35 +4,40 @@
   <title>Where is NDIS funding most used and for accessing what services?</title>
   <style>
     body {
-      background-color: #f4f4f4; /* Light gray background */
-      font-family: Arial, Helvetica, sans-serif; /* Applied globally */
+      background-color: #f4f4f4;
+      font-family: Arial, Helvetica, sans-serif;
     }
     h1, h2 {
       text-align: center;
     }
+    .intro-text, .conclusion {
+      width: 90%;
+      margin: 20px auto;
+      padding: 10px;
+      background-color: #ffffff;
+      border: 1px solid gray;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
     .graph-container {
       border: 1px solid gray;
       padding: 10px;
-      background-color: #e9e9e9; /* Light grey background for graph containers */
+      background-color: #e9e9e9;
       width: 48%;
-      height: 400px; /* Increase height to fit larger content */
+      height: 500px;
+      box-sizing: border-box;
     }
     .text-container {
       border: 1px solid gray;
       padding: 10px;
       margin-top: 10px;
-      background-color: #ffffff; /* White background for text containers */
-      width: 48%;
+      background-color: #ffffff;
+      width: 90%;
+      margin: 20px auto;
     }
     .flex-container {
       display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap; /* Wrap to fit larger elements on smaller screens */
-    }
-    .dot-points {
-      width: 95%;
-      margin: 10px auto;
-      text-align: left;
+      justify-content: space-between;
+      flex-wrap: wrap;
     }
     .dot-points ul {
       list-style-type: disc;
@@ -47,86 +52,53 @@
 <body>
   <h1>Where is NDIS funding most used and for accessing what services?</h1>
 
-  <h2>Section 1 Heading</h2>
-  <div class="flex-container"> 
-    <div class="graph-container" id="line-chart"></div>
-    <div class="graph-container" id="bar-chart"></div>
-  </div>
-  <div class="dot-points">
-    <ul>
-      <li>The line chart shows the steady increase in NDIS funding from 2019 to 2024.</li>
-      <li>2023 saw a slight dip in funding before a rise again in 2024.</li>
-      <li>The bar chart indicates Therapy and Support Coordination are the most accessed services in 2024.</li>
-    </ul>
+  <div class="intro-text">
+    <p>
+      Understanding where NDIS funding is most utilised and for which services can provide essential insights into where Australia may need to increase support. From a research perspective, this could highlight a need for more therapy services in certain areas, while from a government resourcing point of view, it may suggest additional funding for Support Coordination if it is widely utilised. This story will guide us through these insights on a state-by-state basis.
+    </p>
   </div>
 
-  <h2>Section 2 Heading</h2>
+  <h2>State-wise Funding and Age Group Breakdown</h2>
   <div class="flex-container">
     <div class="graph-container" id="map-chart"></div>
+    <div class="graph-container" id="age-group-chart"></div>
   </div>
-  <div class="dot-points">
-    <ul>
-      <li>New South Wales has the highest number of people accessing NDIS funding with over 3,200 individuals.</li>
-      <li>Victoria and Queensland follow closely, reflecting a high demand in the eastern states.</li>
-      <li>Northern Territory and ACT show the lowest access to funding, consistent with their lower population densities.</li>
-    </ul>
+  <div class="text-container">
+    <p>By selecting a state on the map, the chart next to it dynamically updates to show the breakdown of participants by age group, helping to understand which age groups are most reliant on NDIS support in each state.</p>
+  </div>
+
+  <h2>Service Usage Breakdown</h2>
+  <div class="flex-container">
+    <div class="graph-container" id="tree-map-chart"></div>
+  </div>
+  <div class="text-container">
+    <p>Once the state is selected, the treemap reveals which services are most utilised in that region. This helps us identify the most common needs—whether it’s Therapy, Support Coordination, or Plan Management services.</p>
+  </div>
+
+  <h2>Funding Allocation per Service</h2>
+  <div class="flex-container">
+    <div class="graph-container" id="funding-bar-chart"></div>
+  </div>
+  <div class="text-container">
+    <p>The funding bar chart shows how the funding is distributed across different services within the selected state, providing a financial perspective on resource allocation and NDIS spending priorities.</p>
+  </div>
+
+  <div class="conclusion">
+    <h2>Conclusion</h2>
+    <p>
+      This exploration into NDIS funding reveals the diverse needs across different states and age groups. While some regions show a high reliance on therapy services, others might indicate a demand for more support coordination. Understanding these trends is crucial for improving NDIS resourcing and delivering targeted services to participants across Australia.
+    </p>
   </div>
 
   <!-- Vega-Lite Chart Configurations -->
   <script>
-    // Line Chart Example (Dummy Data)
-    var lineChart = {
-      "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-      "description": "NDIS Funding Over Time",
-      "title": "NDIS Funding Over Time (2019-2024)",
-      "width": "container", // Fit width to container
-      "height": 350,
-      "data": {
-        "values": [
-          {"year": 2019, "funding": 2000},
-          {"year": 2020, "funding": 3000},
-          {"year": 2021, "funding": 4000},
-          {"year": 2022, "funding": 3500},
-          {"year": 2023, "funding": 4200},
-          {"year": 2024, "funding": 4800}
-        ]
-      },
-      "mark": "line",
-      "encoding": {
-        "x": {"field": "year", "type": "temporal", "title": "Year"},
-        "y": {"field": "funding", "type": "quantitative", "title": "Funding (in $k)"}
-      }
-    };
-
-    // Bar Chart Example (Dummy Data)
-    var barChart = {
-      "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-      "description": "NDIS Service Access Distribution",
-      "title": "NDIS Service Access Distribution (2024)",
-      "width": "container", // Fit width to container
-      "height": 350,
-      "data": {
-        "values": [
-          {"service": "Therapy", "access": 1800},
-          {"service": "Support Coordination", "access": 1200},
-          {"service": "Plan Management", "access": 1000},
-          {"service": "Accommodation", "access": 800}
-        ]
-      },
-      "mark": "bar",
-      "encoding": {
-        "x": {"field": "service", "type": "nominal", "title": "Service Type"},
-        "y": {"field": "access", "type": "quantitative", "title": "Number of People Accessing"}
-      }
-    };
-
-    // Map of Australia with NDIS funding access by state (Dummy Data)
+    // Map of Australia (State Selection) Example
     var mapChart = {
       "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
       "description": "Map of Australia with NDIS Funding Access by State",
       "title": "NDIS Funding Access by State (2024)",
       "width": "container",
-      "height": 350,
+      "height": 400,
       "projection": {"type": "mercator"},
       "layer": [
         {
@@ -164,10 +136,34 @@
       ]
     };
 
-    // Embed the charts in the HTML divs
-    vegaEmbed('#line-chart', lineChart);
-    vegaEmbed('#bar-chart', barChart);
-    vegaEmbed('#map-chart', mapChart);
-  </script>
-</body>
-</html>
+    // Age Group Breakdown (Interactive)
+    var ageGroupChart = {
+      "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+      "description": "Age Group Breakdown for Selected State",
+      "title": "Age Group Breakdown for Selected State",
+      "width": "container",
+      "height": 400,
+      "data": {
+        "values": [
+          {"ageGroup": "0-14", "access": 1200},
+          {"ageGroup": "15-24", "access": 900},
+          {"ageGroup": "25-44", "access": 1500},
+          {"ageGroup": "45-64", "access": 1000},
+          {"ageGroup": "65+", "access": 600}
+        ]
+      },
+      "mark": "bar",
+      "encoding": {
+        "x": {"field": "ageGroup", "type": "nominal", "title": "Age Group"},
+        "y": {"field": "access", "type": "quantitative", "title": "Number of People Accessing"}
+      }
+    };
+
+    // Service Usage Tree Map
+    var treeMapChart = {
+      "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+      "description": "Service Usage Breakdown for Selected State",
+      "title": "Service Usage Breakdown for Selected State",
+      "width": "container",
+      "height": 400,
+      "mark
