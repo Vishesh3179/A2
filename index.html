@@ -175,14 +175,101 @@
       "mark": "bar",
       "encoding": {
         "x": {"field": "ageGroup", "type": "nominal", "title": "Age Group"},
-        "y": {"field": "count", "type": "quantitative", "title": "Number of Participants"},
-        "color": {"field": "ageGroup", "type": "nominal"}
+        "y": {"field": "count", "type": "quantitative", "title": "Participant Count"},
+        "tooltip": [
+          {"field": "ageGroup", "type": "nominal", "title": "Age Group"},
+          {"field": "count", "type": "quantitative", "title": "Participant Count"}
+        ]
+      }
+    };
+
+    // Tree Map for Service Allocation (Dummy Data)
+    var serviceTreeMap = {
+      "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+      "description": "Service Breakdown in NDIS Funding Allocation",
+      "title": "Service Breakdown of NDIS Funding Allocation",
+      "width": "container",
+      "height": 350,
+      "data": {
+        "values": [
+          {"service": "Therapy", "funding": 1800},
+          {"service": "Support Coordination", "funding": 1200},
+          {"service": "Transport", "funding": 600},
+          {"service": "Home Modifications", "funding": 400},
+          {"service": "Employment Support", "funding": 500}
+        ]
+      },
+      "mark": "bar",
+      "encoding": {
+        "x": {"field": "service", "type": "nominal", "title": "Service Type"},
+        "y": {"field": "funding", "type": "quantitative", "title": "Funding Amount"},
+        "tooltip": [
+          {"field": "service", "type": "nominal", "title": "Service Type"},
+          {"field": "funding", "type": "quantitative", "title": "Funding Amount"}
+        ]
+      }
+    };
+
+    // Funding Allocation Bar Chart (Dummy Data)
+    var fundingAllocationBar = {
+      "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+      "description": "Funding Allocation by NDIS Service",
+      "title": "Funding Allocation by NDIS Service",
+      "width": "container",
+      "height": 350,
+      "data": {
+        "values": [
+          {"service": "Therapy", "funding": 1800},
+          {"service": "Support Coordination", "funding": 1200},
+          {"service": "Transport", "funding": 600},
+          {"service": "Home Modifications", "funding": 400},
+          {"service": "Employment Support", "funding": 500}
+        ]
+      },
+      "mark": "bar",
+      "encoding": {
+        "x": {"field": "service", "type": "nominal", "title": "Service"},
+        "y": {"field": "funding", "type": "quantitative", "title": "Funding"},
+        "tooltip": [
+          {"field": "service", "type": "nominal", "title": "Service"},
+          {"field": "funding", "type": "quantitative", "title": "Funding"}
+        ]
+      }
+    };
+
+    // Line Chart for Trend Analysis (Dummy Data)
+    var trendLineChart = {
+      "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+      "description": "NDIS Service Usage Trends Over Time",
+      "title": "NDIS Service Usage Trends Over Time",
+      "width": "container",
+      "height": 350,
+      "data": {
+        "values": [
+          {"year": 2019, "usage": 1200},
+          {"year": 2020, "usage": 1400},
+          {"year": 2021, "usage": 1600},
+          {"year": 2022, "usage": 1800},
+          {"year": 2023, "usage": 2000}
+        ]
+      },
+      "mark": "line",
+      "encoding": {
+        "x": {"field": "year", "type": "temporal", "title": "Year"},
+        "y": {"field": "usage", "type": "quantitative", "title": "Service Usage"},
+        "tooltip": [
+          {"field": "year", "type": "temporal", "title": "Year"},
+          {"field": "usage", "type": "quantitative", "title": "Service Usage"}
+        ]
       }
     };
 
     // Render the charts
     vegaEmbed('#map-chart', mapChart);
     vegaEmbed('#age-group-chart', ageGroupChart);
+    vegaEmbed('#service-tree-map', serviceTreeMap);
+    vegaEmbed('#funding-allocation-bar', fundingAllocationBar);
+    vegaEmbed('#trend-line-chart', trendLineChart);
   </script>
 
 </body>
