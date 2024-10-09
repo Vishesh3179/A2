@@ -4,101 +4,102 @@
   <title>Where is NDIS funding most used and for accessing what services?</title>
   <style>
     body {
-      background-color: #f4f4f4;
-      font-family: Arial, Helvetica, sans-serif;
+      background-color: #f4f4f4; 
+      font-family: Arial, Helvetica, sans-serif; 
     }
-    h1, h2 {
+    h1, h2, h3 {
       text-align: center;
-    }
-    .intro-text, .conclusion {
-      width: 90%;
-      margin: 20px auto;
-      padding: 10px;
-      background-color: #ffffff;
-      border: 1px solid gray;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
     .graph-container {
       border: 1px solid gray;
       padding: 10px;
       background-color: #e9e9e9;
       width: 48%;
-      height: 500px;
-      box-sizing: border-box;
-    }
-    .text-container {
-      border: 1px solid gray;
-      padding: 10px;
-      margin-top: 10px;
-      background-color: #ffffff;
-      width: 90%;
-      margin: 20px auto;
+      height: 400px;
+      margin: 10px auto;
     }
     .flex-container {
       display: flex;
-      justify-content: space-between;
+      justify-content: space-around;
       flex-wrap: wrap;
     }
-    .dot-points ul {
+    .dot-points, .conclusion {
+      width: 90%;
+      margin: 20px auto;
+      text-align: left;
+    }
+    .dot-points ul, .conclusion ul {
       list-style-type: disc;
       margin-left: 20px;
     }
   </style>
-  <!-- Vega and Vega-Lite libraries -->
   <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 </head>
 <body>
   <h1>Where is NDIS funding most used and for accessing what services?</h1>
+  <p style="text-align:center; max-width: 80%; margin: 20px auto;">
+    The answer to this question dictates where Australia might need more support. For example, if therapy services are underutilised, we might need to focus on improving their accessibility. Alternatively, if support coordination is used the most, government resources may need to be shifted accordingly. This visualisation helps explore these trends across states.
+  </p>
 
-  <div class="intro-text">
-    <p>
-      Understanding where NDIS funding is most utilised and for which services can provide essential insights into where Australia may need to increase support. From a research perspective, this could highlight a need for more therapy services in certain areas, while from a government resourcing point of view, it may suggest additional funding for Support Coordination if it is widely utilised. This story will guide us through these insights on a state-by-state basis.
-    </p>
-  </div>
-
-  <h2>State-wise Funding and Age Group Breakdown</h2>
+  <!-- Map Section -->
+  <h2>NDIS Access Across Australia</h2>
   <div class="flex-container">
     <div class="graph-container" id="map-chart"></div>
+  </div>
+  <div class="dot-points">
+    <ul>
+      <li>New South Wales leads with the highest number of NDIS participants, followed by Victoria and Queensland.</li>
+      <li>The Northern Territory and ACT show the least engagement, reflecting population densities.</li>
+      <li>Select a state to see a detailed breakdown of funding usage, participant age groups, and service types.</li>
+    </ul>
+  </div>
+
+  <!-- Participant Age Group and Service Breakdown (Interactive with State Selection) -->
+  <h2>State-specific Insights</h2>
+  <div class="flex-container">
     <div class="graph-container" id="age-group-chart"></div>
+    <div class="graph-container" id="service-tree-map"></div>
   </div>
-  <div class="text-container">
-    <p>By selecting a state on the map, the chart next to it dynamically updates to show the breakdown of participants by age group, helping to understand which age groups are most reliant on NDIS support in each state.</p>
+  <div class="dot-points">
+    <ul>
+      <li>The age breakdown reveals how different age groups access NDIS funding, which can inform targeted service strategies.</li>
+      <li>The tree map highlights the most accessed services, varying significantly between states.</li>
+    </ul>
   </div>
 
-  <h2>Service Usage Breakdown</h2>
+  <!-- Funding Allocation Bar Chart -->
+  <h2>Funding Allocation by Service</h2>
   <div class="flex-container">
-    <div class="graph-container" id="tree-map-chart"></div>
+    <div class="graph-container" id="funding-allocation-bar"></div>
   </div>
-  <div class="text-container">
-    <p>Once the state is selected, the treemap reveals which services are most utilised in that region. This helps us identify the most common needs—whether it’s Therapy, Support Coordination, or Plan Management services.</p>
-  </div>
-
-  <h2>Funding Allocation per Service</h2>
-  <div class="flex-container">
-    <div class="graph-container" id="funding-bar-chart"></div>
-  </div>
-  <div class="text-container">
-    <p>The funding bar chart shows how the funding is distributed across different services within the selected state, providing a financial perspective on resource allocation and NDIS spending priorities.</p>
+  <div class="dot-points">
+    <ul>
+      <li>Therapy and support coordination dominate the funding allocation, but this varies by state.</li>
+      <li>States with higher NDIS engagement tend to allocate more resources towards participant management services.</li>
+    </ul>
   </div>
 
+  <!-- Conclusion Section -->
+  <h3>Conclusion</h3>
   <div class="conclusion">
-    <h2>Conclusion</h2>
-    <p>
-      This exploration into NDIS funding reveals the diverse needs across different states and age groups. While some regions show a high reliance on therapy services, others might indicate a demand for more support coordination. Understanding these trends is crucial for improving NDIS resourcing and delivering targeted services to participants across Australia.
-    </p>
+    <ul>
+      <li>NDIS funding distribution and service engagement varies greatly across Australia, highlighting the need for region-specific strategies.</li>
+      <li>Improving accessibility to therapy services in states with lower engagement could boost outcomes for participants.</li>
+      <li>Government resources may need to be realigned to better support coordination and management services, especially in states with high participant numbers.</li>
+    </ul>
   </div>
 
   <!-- Vega-Lite Chart Configurations -->
   <script>
-    // Map of Australia (State Selection) Example
+    // Map Chart for selecting states (Dummy Data)
     var mapChart = {
       "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
       "description": "Map of Australia with NDIS Funding Access by State",
       "title": "NDIS Funding Access by State (2024)",
       "width": "container",
-      "height": 400,
+      "height": 350,
       "projection": {"type": "mercator"},
       "layer": [
         {
@@ -136,34 +137,89 @@
       ]
     };
 
-    // Age Group Breakdown (Interactive)
+    // Age Group Breakdown by State (Dummy Data)
     var ageGroupChart = {
       "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-      "description": "Age Group Breakdown for Selected State",
-      "title": "Age Group Breakdown for Selected State",
+      "description": "Age Breakdown of NDIS Participants by State",
+      "title": "Age Breakdown of NDIS Participants",
       "width": "container",
-      "height": 400,
+      "height": 350,
       "data": {
         "values": [
-          {"ageGroup": "0-14", "access": 1200},
-          {"ageGroup": "15-24", "access": 900},
-          {"ageGroup": "25-44", "access": 1500},
-          {"ageGroup": "45-64", "access": 1000},
-          {"ageGroup": "65+", "access": 600}
+          {"ageGroup": "0-18", "count": 1000},
+          {"ageGroup": "19-35", "count": 1500},
+          {"ageGroup": "36-50", "count": 800},
+          {"ageGroup": "51-65", "count": 900},
+          {"ageGroup": "66+", "count": 400}
         ]
       },
       "mark": "bar",
       "encoding": {
         "x": {"field": "ageGroup", "type": "nominal", "title": "Age Group"},
-        "y": {"field": "access", "type": "quantitative", "title": "Number of People Accessing"}
+        "y": {"field": "count", "type": "quantitative", "title": "Number of Participants"},
+        "color": {"field": "ageGroup", "type": "nominal", "title": "Age Group"}
       }
     };
 
-    // Service Usage Tree Map
-    var treeMapChart = {
+    // Tree Map for Most Accessed Services by State (Dummy Data)
+    var serviceTreeMap = {
       "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-      "description": "Service Usage Breakdown for Selected State",
-      "title": "Service Usage Breakdown for Selected State",
+      "description": "Most Accessed Services by State",
+      "title": "Most Accessed Services",
       "width": "container",
-      "height": 400,
-      "mark
+      "height": 350,
+      "data": {
+        "values": [
+          {"service": "Therapy", "access": 1800},
+          {"service": "Support Coordination", "access": 1200},
+          {"service": "Plan Management", "access": 1000},
+          {"service": "Accommodation", "access": 800}
+        ]
+      },
+      "mark": "rect",
+      "encoding": {
+        "x": {"field": "service", "type": "nominal", "title": "Service Type"},
+        "y": {"field": "access", "type": "quantitative", "title": "Number of People Accessing"},
+        "color": {"field": "access", "type": "quantitative", "title": "Access"},
+        "tooltip": [
+          {"field": "service", "type": "nominal", "title": "Service Type"},
+          {"field": "access", "type": "quantitative", "title": "Number of People Accessing"}
+        ]
+      }
+    };
+
+    // Funding Allocation Bar Chart by Service (Dummy Data)
+    var fundingAllocationBar = {
+      "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+      "description": "Funding Allocation by Service",
+      "title": "Funding Allocation by Service",
+      "width": "container",
+      "height": 350,
+      "data": {
+        "values": [
+          {"service": "Therapy", "funding": 3000},
+          {"service": "Support Coordination", "funding": 2500},
+          {"service": "Plan Management", "funding": 2000},
+          {"service": "Accommodation", "funding": 1500}
+        ]
+      },
+      "mark": "bar",
+      "encoding": {
+        "x": {"field": "service", "type": "nominal", "title": "Service Type"},
+        "y": {"field": "funding", "type": "quantitative", "title": "Funding Allocated"},
+        "color": {"field": "funding", "type": "quantitative", "title": "Funding"},
+        "tooltip": [
+          {"field": "service", "type": "nominal", "title": "Service Type"},
+          {"field": "funding", "type": "quantitative", "title": "Funding Allocated"}
+        ]
+      }
+    };
+
+    // Embed the charts
+    vegaEmbed('#map-chart', mapChart);
+    vegaEmbed('#age-group-chart', ageGroupChart);
+    vegaEmbed('#service-tree-map', serviceTreeMap);
+    vegaEmbed('#funding-allocation-bar', fundingAllocationBar);
+  </script>
+</body>
+</html>
