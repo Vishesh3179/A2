@@ -48,23 +48,9 @@
   <header>
     <h1>Where is NDIS Funding Most Used and For What Services?</h1>
     <p class="text-center mx-auto" style="max-width: 80%;">
-      Understanding NDIS funding usage helps identify areas needing more support. This visualization explores service access and funding allocation across Australia.
+      The National Disability Insurance Scheme (NDIS) is a significant Australian government program supporting people with disabilities. Launched in 2013, the NDIS is designed to give people with disabilities greater access to the services they need, funded by both federal and state governments. In 2024, the NDIS budget allocation has exceeded $35 billion, highlighting its importance to Australian communities. This visualization explores how NDIS funding is used across Australia, identifying trends in service access, age group engagement, and funding allocation.
     </p>
   </header>
-
-  <section>
-    <h2>NDIS Access Across Australia</h2>
-    <div class="d-flex justify-content-center flex-wrap">
-      <div class="graph-container" id="map-chart"></div>
-    </div>
-    <div class="dot-points col-md-8 mx-auto">
-      <ul>
-        <li>New South Wales leads with the highest number of NDIS participants, followed by Victoria and Queensland.</li>
-        <li>The Northern Territory and ACT show the least engagement, reflecting population densities.</li>
-        <li>Select a state to see a detailed breakdown of funding usage, participant age groups, and service types.</li>
-      </ul>
-    </div>
-  </section>
 
   <section>
     <h2>State-specific Insights</h2>
@@ -95,6 +81,20 @@
   </section>
 
   <section>
+    <h2>NDIS Access Across Australia</h2>
+    <div class="d-flex justify-content-center flex-wrap">
+      <div class="graph-container" id="map-chart"></div>
+    </div>
+    <div class="dot-points col-md-8 mx-auto">
+      <ul>
+        <li>New South Wales leads with the highest number of NDIS participants, followed by Victoria and Queensland.</li>
+        <li>The Northern Territory and ACT show the least engagement, reflecting population densities.</li>
+        <li>Select a state to see a detailed breakdown of funding usage, participant age groups, and service types.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
     <h3>Conclusion</h3>
     <div class="conclusion col-md-8 mx-auto">
       <ul>
@@ -118,195 +118,4 @@
         {
           "data": {
             "url": "https://vega.github.io/vega-datasets/data/aus-10m.json",
-            "format": {"type": "topojson", "feature": "states"}
-          },
-          "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "white"}
-        },
-        {
-          "data": {
-            "values": [
-              {"state": "New South Wales", "access": 3200, "lat": -33.8688, "lon": 151.2093},
-              {"state": "Victoria", "access": 2800, "lat": -37.8136, "lon": 144.9631},
-              {"state": "Queensland", "access": 2200, "lat": -27.4698, "lon": 153.0251},
-              {"state": "Western Australia", "access": 1600, "lat": -31.9505, "lon": 115.8605},
-              {"state": "South Australia", "access": 1400, "lat": -34.9285, "lon": 138.6007},
-              {"state": "Tasmania", "access": 600, "lat": -42.8821, "lon": 147.3272},
-              {"state": "Northern Territory", "access": 400, "lat": -12.4634, "lon": 130.8456},
-              {"state": "Australian Capital Territory", "access": 200, "lat": -35.2809, "lon": 149.1300}
-            ]
-          },
-          "mark": {
-            "type": "circle",
-            "tooltip": {
-              content: "data",
-              style: {"font-size": "14px", "background": "rgba(0, 0, 0, 0.8)", "color": "#fff", "padding": "5px"}
-            }
-          },
-          "encoding": {
-            "longitude": {"field": "lon", "type": "quantitative"},
-            "latitude": {"field": "lat", "type": "quantitative"},
-            "size": {"field": "access", "type": "quantitative", "title": "Access (Number of People)"},
-            "color": {"field": "access", "type": "quantitative", "scale": {"scheme": "blues"}, "title": "Access Count"},
-            "tooltip": [
-              {"field": "state", "type": "nominal", "title": "State"},
-              {"field": "access", "type": "quantitative", "title": "People Accessing Funding"}
-            ]
-          }
-        }
-      ]
-    };
-
-    // Age Group Breakdown by State (Dummy Data)
-    var ageGroupChart = {
-      "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-      "description": "Age Breakdown of NDIS Participants by State",
-      "title": "Age Breakdown of NDIS Participants",
-      "width": "container",
-      "height": 350,
-      "data": {
-        "values": [
-          {"ageGroup": "0-18", "count": 1000},
-          {"ageGroup": "19-35", "count": 1500},
-          {"ageGroup": "36-50", "count": 800},
-          {"ageGroup": "51-65", "count": 900},
-          {"ageGroup": "66+", "count": 400}
-        ]
-      },
-      "mark": "bar",
-      "encoding": {
-        "x": {"field": "ageGroup", "type": "nominal", "title": "Age Group"},
-        "y": {"field": "count", "type": "quantitative", "title": "Number of Participants"},
-        "color": {"field": "ageGroup", "type": "nominal", "scale": {"scheme": "category10"}},
-        "tooltip": [
-          {"field": "ageGroup", "type": "nominal", "title": "Age Group"},
-          {"field": "count", "type": "quantitative", "title": "Number of Participants"}
-        ]
-      }
-    };
-
-    // Tree Map for Most Accessed Services by State (Dummy Data)
-    var serviceTreeMap = {
-      "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-      "description": "Most Accessed Services by State",
-      "title": "Most Accessed Services",
-      "width": "container",
-      "height": 350,
-      "data": {
-        "values": [
-          {"service": "Therapy", "access": 1800},
-          {"service": "Support Coordination", "access": 1200},
-          {"service": "Plan Management", "access": 700},
-          {"service": "Personal Care", "access": 500},
-          {"service": "Community Participation", "access": 300}
-        ]
-      },
-      "mark": "rect",
-      "encoding": {
-        "x": {
-          "field": "service",
-          "type": "ordinal",
-          "title": "Service Type",
-          "axis": {"labelAngle": -45}
-        },
-        "y": {
-          "field": "access",
-          "type": "quantitative",
-          "title": "Access Count"
-        },
-        "color": {
-          "field": "access",
-          "type": "quantitative",
-          "scale": {"scheme": "blues"}
-        },
-        "tooltip": [
-          {"field": "service", "type": "nominal", "title": "Service"},
-          {"field": "access", "type": "quantitative", "title": "Number of Accesses"}
-        ]
-      }
-    };
-
-    // Funding Allocation by Service Bar Chart (Dummy Data)
-    var fundingAllocationBar = {
-      "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-      "description": "Funding Allocation by Service",
-      "title": "Funding Allocation by Service",
-      "width": "container",
-      "height": 350,
-      "data": {
-        "values": [
-          {"service": "Therapy", "allocation": 3000},
-          {"service": "Support Coordination", "allocation": 2500},
-          {"service": "Plan Management", "allocation": 2000},
-          {"service": "Personal Care", "allocation": 1500},
-          {"service": "Community Participation", "allocation": 1000}
-        ]
-      },
-      "mark": "bar",
-      "encoding": {
-        "x": {
-          "field": "service",
-          "type": "ordinal",
-          "title": "Service Type"
-        },
-        "y": {
-          "field": "allocation",
-          "type": "quantitative",
-          "title": "Funding Allocation ($AUD)"
-        },
-        "color": {
-          "field": "allocation",
-          "type": "quantitative",
-          "scale": {"scheme": "greens"}
-        },
-        "tooltip": [
-          {"field": "service", "type": "nominal", "title": "Service"},
-          {"field": "allocation", "type": "quantitative", "title": "Funding Allocation ($AUD)"}
-        ]
-      }
-    };
-
-    // Trend Line Chart (Dummy Data)
-    var trendLineChart = {
-      "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-      "description": "Trend of NDIS Funding Allocation Over Time",
-      "title": "Funding Allocation Trend (2020-2024)",
-      "width": "container",
-      "height": 350,
-      "data": {
-        "values": [
-          {"year": 2020, "allocation": 18000},
-          {"year": 2021, "allocation": 21000},
-          {"year": 2022, "allocation": 25000},
-          {"year": 2023, "allocation": 28000},
-          {"year": 2024, "allocation": 32000}
-        ]
-      },
-      "mark": "line",
-      "encoding": {
-        "x": {
-          "field": "year",
-          "type": "ordinal",
-          "title": "Year"
-        },
-        "y": {
-          "field": "allocation",
-          "type": "quantitative",
-          "title": "Funding Allocation ($AUD)"
-        },
-        "color": {"value": "#FF5733"},
-        "tooltip": [
-          {"field": "year", "type": "ordinal", "title": "Year"},
-          {"field": "allocation", "type": "quantitative", "title": "Funding Allocation ($AUD)"}
-        ]
-      }
-    };
-
-    // Embed the charts
-    vegaEmbed('#map-chart', mapChart);
-    vegaEmbed('#age-group-chart', ageGroupChart);
-    vegaEmbed('#service-tree-map', serviceTreeMap);
-    vegaEmbed('#funding-allocation-bar', fundingAllocationBar);
-    vegaEmbed('#trend-line-chart', trendLineChart);
-  </script>
-</body>
-</html>
+            "format": {"type": "topo
