@@ -14,18 +14,29 @@
       border: 1px solid gray;
       padding: 10px;
       background-color: #e9e9e9; /* Light grey background for graph containers */
-      width: 45%;
+      width: 48%;
+      height: 400px; /* Increase height to fit larger content */
     }
     .text-container {
       border: 1px solid gray;
       padding: 10px;
       margin-top: 10px;
       background-color: #ffffff; /* White background for text containers */
-      width: 45%;
+      width: 48%;
     }
     .flex-container {
       display: flex;
       justify-content: space-around;
+      flex-wrap: wrap; /* Wrap to fit larger elements on smaller screens */
+    }
+    .dot-points {
+      width: 95%;
+      margin: 10px auto;
+      text-align: left;
+    }
+    .dot-points ul {
+      list-style-type: disc;
+      margin-left: 20px;
     }
   </style>
   <!-- Vega and Vega-Lite libraries -->
@@ -34,25 +45,31 @@
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 </head>
 <body>
-  <h1>NDIS Funding Usage</h1>
+  <h1>Where is NDIS funding most used and for accessing what services?</h1>
 
   <h2>Section 1 Heading</h2>
   <div class="flex-container"> 
     <div class="graph-container" id="line-chart"></div>
     <div class="graph-container" id="bar-chart"></div>
   </div>
-  <div class="flex-container">
-    <div class="text-container">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-    </div>
-    <div class="text-container">
-      Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    </div>
+  <div class="dot-points">
+    <ul>
+      <li>The line chart shows the steady increase in NDIS funding from 2019 to 2024.</li>
+      <li>2023 saw a slight dip in funding before a rise again in 2024.</li>
+      <li>The bar chart indicates Therapy and Support Coordination are the most accessed services in 2024.</li>
+    </ul>
   </div>
 
   <h2>Section 2 Heading</h2>
   <div class="flex-container">
     <div class="graph-container" id="map-chart"></div>
+  </div>
+  <div class="dot-points">
+    <ul>
+      <li>New South Wales has the highest number of people accessing NDIS funding with over 3,200 individuals.</li>
+      <li>Victoria and Queensland follow closely, reflecting a high demand in the eastern states.</li>
+      <li>Northern Territory and ACT show the lowest access to funding, consistent with their lower population densities.</li>
+    </ul>
   </div>
 
   <!-- Vega-Lite Chart Configurations -->
@@ -62,8 +79,8 @@
       "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
       "description": "NDIS Funding Over Time",
       "title": "NDIS Funding Over Time (2019-2024)",
-      "width": 300,
-      "height": 200,
+      "width": "container", // Fit width to container
+      "height": 350,
       "data": {
         "values": [
           {"year": 2019, "funding": 2000},
@@ -86,8 +103,8 @@
       "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
       "description": "NDIS Service Access Distribution",
       "title": "NDIS Service Access Distribution (2024)",
-      "width": 300,
-      "height": 200,
+      "width": "container", // Fit width to container
+      "height": 350,
       "data": {
         "values": [
           {"service": "Therapy", "access": 1800},
@@ -108,8 +125,8 @@
       "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
       "description": "Map of Australia with NDIS Funding Access by State",
       "title": "NDIS Funding Access by State (2024)",
-      "width": 600,
-      "height": 400,
+      "width": "container",
+      "height": 350,
       "projection": {"type": "mercator"},
       "layer": [
         {
