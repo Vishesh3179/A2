@@ -19,7 +19,7 @@
       padding: 10px;
       background-color: #e9e9e9;
       margin: 10px auto;
-      width: 90%; /* Center the graphs */
+      width: 90%; /* Adjust width for centering */
     }
     .dot-points, .conclusion {
       margin: 20px auto;
@@ -174,4 +174,81 @@
         "values": [
           {"service": "Therapy", "access": 1800},
           {"service": "Support Coordination", "access": 1200},
-          {"service": "
+          {"service": "Plan Management", "access": 700},
+          {"service": "Personal Care", "access": 500},
+          {"service": "Community Participation", "access": 300}
+        ]
+      },
+      "mark": "rect",
+      "encoding": {
+        "x": {
+          "field": "service",
+          "type": "ordinal",
+          "title": "Service Type",
+          "axis": {"labelAngle": -45}
+        },
+        "y": {
+          "field": "access",
+          "type": "quantitative",
+          "title": "Access Count"
+        },
+        "color": {
+          "field": "access",
+          "type": "quantitative",
+          "scale": {"scheme": "blues"}
+        },
+        "tooltip": [
+          {"field": "service", "type": "nominal", "title": "Service"},
+          {"field": "access", "type": "quantitative", "title": "Number of Accesses"}
+        ]
+      }
+    };
+
+    // Funding Allocation by Service Bar Chart (Dummy Data)
+    var fundingAllocationBar = {
+      "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+      "description": "Funding Allocation by Service",
+      "title": "Funding Allocation by Service",
+      "width": "container",
+      "height": 350,
+      "data": {
+        "values": [
+          {"service": "Therapy", "allocation": 3000},
+          {"service": "Support Coordination", "allocation": 2500},
+          {"service": "Plan Management", "allocation": 2000},
+          {"service": "Personal Care", "allocation": 1500},
+          {"service": "Community Participation", "allocation": 1000}
+        ]
+      },
+      "mark": "bar",
+      "encoding": {
+        "x": {
+          "field": "service",
+          "type": "ordinal",
+          "title": "Service Type"
+        },
+        "y": {
+          "field": "allocation",
+          "type": "quantitative",
+          "title": "Funding Allocation ($AUD)"
+        },
+        "color": {
+          "field": "allocation",
+          "type": "quantitative",
+          "scale": {"scheme": "greens"}
+        },
+        "tooltip": [
+          {"field": "service", "type": "nominal", "title": "Service"},
+          {"field": "allocation", "type": "quantitative", "title": "Funding Allocation ($AUD)"}
+        ]
+      }
+    };
+
+    // Embed the charts
+    vegaEmbed('#map-chart', mapChart);
+    vegaEmbed('#age-group-chart', ageGroupChart);
+    vegaEmbed('#service-tree-map', serviceTreeMap);
+    vegaEmbed('#funding-allocation-bar', fundingAllocationBar);
+  </script>
+</body>
+</html>
