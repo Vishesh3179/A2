@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Where is NDIS funding most used and for accessing what services?</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Visualization of NDIS funding usage across Australia.">
+  <title>NDIS Funding Usage</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <style>
     body {
-      background-color: #f4f4f4; 
-      font-family: Arial, Helvetica, sans-serif; 
+      background-color: #f4f4f4;
+      font-family: Arial, Helvetica, sans-serif;
     }
     h1, h2, h3 {
       text-align: center;
@@ -14,17 +18,9 @@
       border: 1px solid gray;
       padding: 10px;
       background-color: #e9e9e9;
-      width: 48%;
-      height: 400px;
       margin: 10px auto;
     }
-    .flex-container {
-      display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
-    }
     .dot-points, .conclusion {
-      width: 90%;
       margin: 20px auto;
       text-align: left;
     }
@@ -33,65 +29,70 @@
       margin-left: 20px;
     }
   </style>
-  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 </head>
 <body>
-  <h1>Where is NDIS funding most used and for accessing what services?</h1>
-  <p style="text-align:center; max-width: 80%; margin: 20px auto;">
-    The answer to this question dictates where Australia might need more support. For example, if therapy services are underutilised, we might need to focus on improving their accessibility. Alternatively, if support coordination is used the most, government resources may need to be shifted accordingly. This visualisation helps explore these trends across states.
-  </p>
+  <header>
+    <h1>Where is NDIS funding most used and for accessing what services?</h1>
+    <p class="text-center mx-auto" style="max-width: 80%;">
+      The answer to this question dictates where Australia might need more support. For example, if therapy services are underutilised, we might need to focus on improving their accessibility. Alternatively, if support coordination is used the most, government resources may need to be shifted accordingly. This visualization helps explore these trends across states.
+    </p>
+  </header>
 
-  <!-- Map Section -->
-  <h2>NDIS Access Across Australia</h2>
-  <div class="flex-container">
-    <div class="graph-container" id="map-chart"></div>
-  </div>
-  <div class="dot-points">
-    <ul>
-      <li>New South Wales leads with the highest number of NDIS participants, followed by Victoria and Queensland.</li>
-      <li>The Northern Territory and ACT show the least engagement, reflecting population densities.</li>
-      <li>Select a state to see a detailed breakdown of funding usage, participant age groups, and service types.</li>
-    </ul>
-  </div>
+  <section>
+    <h2>NDIS Access Across Australia</h2>
+    <div class="d-flex justify-content-around flex-wrap">
+      <div class="graph-container col-md-5" id="map-chart"></div>
+    </div>
+    <div class="dot-points col-md-8 mx-auto">
+      <ul>
+        <li>New South Wales leads with the highest number of NDIS participants, followed by Victoria and Queensland.</li>
+        <li>The Northern Territory and ACT show the least engagement, reflecting population densities.</li>
+        <li>Select a state to see a detailed breakdown of funding usage, participant age groups, and service types.</li>
+      </ul>
+    </div>
+  </section>
 
-  <!-- Participant Age Group and Service Breakdown (Interactive with State Selection) -->
-  <h2>State-specific Insights</h2>
-  <div class="flex-container">
-    <div class="graph-container" id="age-group-chart"></div>
-    <div class="graph-container" id="service-tree-map"></div>
-  </div>
-  <div class="dot-points">
-    <ul>
-      <li>The age breakdown reveals how different age groups access NDIS funding, which can inform targeted service strategies.</li>
-      <li>The tree map highlights the most accessed services, varying significantly between states.</li>
-    </ul>
-  </div>
+  <section>
+    <h2>State-specific Insights</h2>
+    <div class="d-flex justify-content-around flex-wrap">
+      <div class="graph-container col-md-5" id="age-group-chart"></div>
+      <div class="graph-container col-md-5" id="service-tree-map"></div>
+    </div>
+    <div class="dot-points col-md-8 mx-auto">
+      <ul>
+        <li>The age breakdown reveals how different age groups access NDIS funding, which can inform targeted service strategies.</li>
+        <li>The tree map highlights the most accessed services, varying significantly between states.</li>
+      </ul>
+    </div>
+  </section>
 
-  <!-- Funding Allocation Bar Chart -->
-  <h2>Funding Allocation by Service</h2>
-  <div class="flex-container">
-    <div class="graph-container" id="funding-allocation-bar"></div>
-  </div>
-  <div class="dot-points">
-    <ul>
-      <li>Therapy and support coordination dominate the funding allocation, but this varies by state.</li>
-      <li>States with higher NDIS engagement tend to allocate more resources towards participant management services.</li>
-    </ul>
-  </div>
+  <section>
+    <h2>Funding Allocation by Service</h2>
+    <div class="d-flex justify-content-around flex-wrap">
+      <div class="graph-container col-md-5" id="funding-allocation-bar"></div>
+    </div>
+    <div class="dot-points col-md-8 mx-auto">
+      <ul>
+        <li>Therapy and support coordination dominate the funding allocation, but this varies by state.</li>
+        <li>States with higher NDIS engagement tend to allocate more resources towards participant management services.</li>
+      </ul>
+    </div>
+  </section>
 
-  <!-- Conclusion Section -->
-  <h3>Conclusion</h3>
-  <div class="conclusion">
-    <ul>
-      <li>NDIS funding distribution and service engagement varies greatly across Australia, highlighting the need for region-specific strategies.</li>
-      <li>Improving accessibility to therapy services in states with lower engagement could boost outcomes for participants.</li>
-      <li>Government resources may need to be realigned to better support coordination and management services, especially in states with high participant numbers.</li>
-    </ul>
-  </div>
+  <section>
+    <h3>Conclusion</h3>
+    <div class="conclusion col-md-8 mx-auto">
+      <ul>
+        <li>NDIS funding distribution and service engagement varies greatly across Australia, highlighting the need for region-specific strategies.</li>
+        <li>Improving accessibility to therapy services in states with lower engagement could boost outcomes for participants.</li>
+        <li>Government resources may need to be realigned to better support coordination and management services, especially in states with high participant numbers.</li>
+      </ul>
+    </div>
+  </section>
 
-  <!-- Vega-Lite Chart Configurations -->
   <script>
     // Map Chart for selecting states (Dummy Data)
     var mapChart = {
