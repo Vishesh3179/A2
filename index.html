@@ -19,6 +19,7 @@
       padding: 10px;
       background-color: #e9e9e9;
       margin: 10px auto;
+      width: 90%; /* Center the graphs */
     }
     .dot-points, .conclusion {
       margin: 20px auto;
@@ -29,9 +30,9 @@
       margin-left: 20px;
     }
   </style>
-  <script defer src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 </head>
 <body>
   <header>
@@ -43,8 +44,8 @@
 
   <section>
     <h2>NDIS Access Across Australia</h2>
-    <div class="d-flex justify-content-around flex-wrap">
-      <div class="graph-container col-md-5" id="map-chart"></div>
+    <div class="d-flex justify-content-center flex-wrap">
+      <div class="graph-container" id="map-chart"></div>
     </div>
     <div class="dot-points col-md-8 mx-auto">
       <ul>
@@ -57,9 +58,9 @@
 
   <section>
     <h2>State-specific Insights</h2>
-    <div class="d-flex justify-content-around flex-wrap">
-      <div class="graph-container col-md-5" id="age-group-chart"></div>
-      <div class="graph-container col-md-5" id="service-tree-map"></div>
+    <div class="d-flex justify-content-center flex-wrap">
+      <div class="graph-container" id="age-group-chart"></div>
+      <div class="graph-container" id="service-tree-map"></div>
     </div>
     <div class="dot-points col-md-8 mx-auto">
       <ul>
@@ -71,8 +72,8 @@
 
   <section>
     <h2>Funding Allocation by Service</h2>
-    <div class="d-flex justify-content-around flex-wrap">
-      <div class="graph-container col-md-5" id="funding-allocation-bar"></div>
+    <div class="d-flex justify-content-center flex-wrap">
+      <div class="graph-container" id="funding-allocation-bar"></div>
     </div>
     <div class="dot-points col-md-8 mx-auto">
       <ul>
@@ -173,54 +174,4 @@
         "values": [
           {"service": "Therapy", "access": 1800},
           {"service": "Support Coordination", "access": 1200},
-          {"service": "Plan Management", "access": 1000},
-          {"service": "Accommodation", "access": 800}
-        ]
-      },
-      "mark": "rect",
-      "encoding": {
-        "x": {"field": "service", "type": "nominal", "title": "Service Type"},
-        "y": {"field": "access", "type": "quantitative", "title": "Number of People Accessing"},
-        "color": {"field": "access", "type": "quantitative", "title": "Access"},
-        "tooltip": [
-          {"field": "service", "type": "nominal", "title": "Service Type"},
-          {"field": "access", "type": "quantitative", "title": "Number of People Accessing"}
-        ]
-      }
-    };
-
-    // Funding Allocation Bar Chart by Service (Dummy Data)
-    var fundingAllocationBar = {
-      "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-      "description": "Funding Allocation by Service",
-      "title": "Funding Allocation by Service",
-      "width": "container",
-      "height": 350,
-      "data": {
-        "values": [
-          {"service": "Therapy", "funding": 3000},
-          {"service": "Support Coordination", "funding": 2500},
-          {"service": "Plan Management", "funding": 2000},
-          {"service": "Accommodation", "funding": 1500}
-        ]
-      },
-      "mark": "bar",
-      "encoding": {
-        "x": {"field": "service", "type": "nominal", "title": "Service Type"},
-        "y": {"field": "funding", "type": "quantitative", "title": "Funding Allocated"},
-        "color": {"field": "funding", "type": "quantitative", "title": "Funding"},
-        "tooltip": [
-          {"field": "service", "type": "nominal", "title": "Service Type"},
-          {"field": "funding", "type": "quantitative", "title": "Funding Allocated"}
-        ]
-      }
-    };
-
-    // Embed the charts
-    vegaEmbed('#map-chart', mapChart);
-    vegaEmbed('#age-group-chart', ageGroupChart);
-    vegaEmbed('#service-tree-map', serviceTreeMap);
-    vegaEmbed('#funding-allocation-bar', fundingAllocationBar);
-  </script>
-</body>
-</html>
+          {"service": "
