@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choropleth Map of Participants</title>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #choropleth-map {
+            width: 100%;
+            height: 500px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Choropleth Map of Participants by Region</h1>
+    <div id="choropleth-map"></div>
+
+    <script>
+        const vlSpec = {
+            "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+            "width": 600,
+            "height": 400,
+            "title": "Participants by SA2 Region",
+            "data": {
+                "url": "file_a.json", // Path to your JSON file in the same folder
+                "format": {
+                    "type": "topojson",
+                    "feature": "SA4_2021_AUST_GDA2020" // Using the correct feature name
+                }
+            },
+            "transform": [
+                {
+                    "lookup": "properties.SA4_CODE21",
+                    "from": {
+                        "data": {
+                            "url": "file_b_2021.csv", // Path to your CSV file in the same folder
+                            "format": {"type": "csv"} // Specify the format as CSV
+                        },
+                        "key": "SA4Cd2016", // Key in CSV to join on
+                        "fields": ["PrtcpntCnt"] // Field to retrieve from CSV
+                    }
+                }
+            ],
+            "projection": {
+                "type": "mercator"
+            },
+            "mark": "geoshape",
+            "encoding": {
+                "color": {
+                    "field": "PrtcpntCnt",
+                    "type": "quantitative",
+                    "scale": {
+                        "type": "log", // Logarithmic scale
+                        "domain": [1, 18000], // Adjust the domain to avoid log(0)
+                        "range": ["#ff0000", "#ff7f00", "#ffff00", "#00ff00", "#0000ff", "#8b00ff"], // Rainbow color range
+                        "nice": false // Keep the log scale exact
+                    },
+                    "condition": {
+                        "test": "datum.PrtcpntCnt !== null", // Only color if PrtcpntCnt is not null
+                        "field": "PrtcpntCnt",
+                        "type": "quantitative"
+                    }
+                },
+                "tooltip": [
+                    {"field": "properties.SA4_NAME21", "type": "nominal", "title": "Region"},
+                    {"field": "PrtcpntCnt", "type": "quantitative", "title": "Participants"}
+                ]
+            }
+        };
+
+        // Embed the visualization into the div
+        vegaEmbed('#choropleth-map', vlSpec)
+            .then(result => {
+                // Access the Vega view instance as result.view
+            })
+            .catch(console.error); // Log any errors to the console
+    </script>
+</body>
+</html>

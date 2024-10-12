@@ -1,0 +1,22 @@
+/* Flexbox Styles */
+
+/* Container for holding the map and graphs in a row */
+.flexbox-container {
+    display: flex;
+    justify-content: space-between; /* Ensures space between items */
+    margin-bottom: 20px; /* Space below flexboxes */
+}
+
+/* Map and Graph placeholders have the same size */
+.map, .graph, .chart {
+    flex: 1; /* Flex items grow to fill available space */
+    margin: 5px; /* Adds space between map, graphs, and charts */
+}
+
+/* Placeholder height for graphs/maps/charts */
+.placeholder {
+    height: 200px; /* Adjust height for visual elements */
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Centers content inside the placeholder */
+}
