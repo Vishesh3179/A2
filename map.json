@@ -1,14 +1,37 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": {"text": "Choropleth Map of Active Participants by Region", "color": "black", "font": "Optima", "fontSize": 20, "fontWeight": "bold", "offset": 10},
-  "background-color": #e0e0e5,
+  "title": {
+    "text": "Choropleth Map of Active Participants by Region",
+    "color": "black",
+    "font": "Optima",
+    "fontSize": 20,
+    "fontWeight": "bold",
+    "offset": 10
+  },
+  "background": "#e0e0e5", 
   "width": 600,
   "height": 300,
-  "params": [{"name": "Year_selection", "value": 2019, "bind": {"input": "range", "min": 2019, "max": 2024, "step": 1, "name": "Year:"}}],
+  "params": [
+    {
+      "name": "Year_selection",
+      "value": 2019,
+      "bind": {
+        "input": "range",
+        "min": 2019,
+        "max": 2024,
+        "step": 1,
+        "name": "Year:"
+      }
+    }
+  ],
   "projection": {"type": "mercator"},
   "config": {
     "font": "Georgia",
-    "legend": {"orient": "bottom-right", "labelFontSize": 10, "titleFontSize": 10}
+    "legend": {
+      "orient": "bottom-right",
+      "labelFontSize": 10,
+      "titleFontSize": 10
+    }
   },
   "layer": [
     {
@@ -37,7 +60,7 @@
           },
           "as": "geo"
         },
-        {"filter": "datum.Year == Year_selection"} 
+        {"filter": "datum.Year == Year_selection"}
       ],
       "mark": {"type": "geoshape", "stroke": "white", "strokeWidth": 1},
       "encoding": {
@@ -52,7 +75,7 @@
           {"field": "Region name", "type": "nominal", "title": "Region"},
           {"field": "Normalised Active Participants (Participants/10000 residents)", "type": "quantitative", "title": "Participants/10,000 residents"},
           {"field": "Year", "type": "quantitative"},
-          {"field": "Poppulation", "type": "quantitative"},
+          {"field": "Population", "type": "quantitative"}, 
           {"field": "Active participants", "type": "quantitative"}
         ]
       }
