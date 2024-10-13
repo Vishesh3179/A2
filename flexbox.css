@@ -1,25 +1,22 @@
 /* Flexbox Styles */
 
-/* Container for holding the map and graphs in a row */
+/* Main container for holding sections in a row */
 .flexbox-container {
-    height: 400px;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between; /* Space between the two main sections */
     margin-bottom: 20px; /* Space below flexboxes */
 }
 
-/* Map and Graph placeholders have the same size */
-.map, .graph, .chart {
-    flex: 1; /* Flex items grow to fill available space */
-    margin: 5px; /* Adds space between map, graphs, and charts */
+/* Each section (either map or graph) */
+.section {
+    flex: 1; /* Each section takes equal space */
+    margin: 5px; /* Adds space between sections */
 }
 
-/* Placeholder height for graphs/maps/charts */
+/* Placeholder for maps and graphs */
 .placeholder {
-    height: 400px; /* Adjust height for visual elements */
+    height: 400px; /* Fixed height for visual elements */
     display: flex;
     justify-content: center;
     align-items: center; /* Centers content inside the placeholder */
-    margin-bottom: 20px;
 }
