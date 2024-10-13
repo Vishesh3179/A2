@@ -4,6 +4,9 @@
     <title>Visual Design Layout</title>
     <link rel="stylesheet" href="style.css"> <!-- Link to main styles -->
     <link rel="stylesheet" href="flexbox.css"> <!-- Link to flexbox styles -->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 </head>
 <body>
 
@@ -19,11 +22,11 @@
     <!-- First Flexbox: Contains the map and graph with text underneath -->
     <div class="flexbox-container">
         <div class="visual-container">
-            <div class="placeholder">Map Placeholder</div>
+            <div id="map" class="placeholder"></div> <!-- Map Placeholder -->
             <div class="text-box">Text related to the map.</div>
         </div>
         <div class="visual-container">
-            <div class="placeholder">Graph Placeholder</div>
+            <div id="graph" class="placeholder"></div> <!-- Graph Placeholder -->
             <div class="text-box">Text for the graph.</div>
         </div>
     </div>
@@ -57,5 +60,18 @@
         </div>
     </div>
 
+    <!-- Embedding the map and graph using Vega-Lite -->
+    <script>
+        // Embed the map in the placeholder
+        vegaEmbed('#map', 'map.json').then(result => {
+            console.log('Map embedded successfully');
+        }).catch(console.error);
+
+        // Embed the graph in the placeholder
+        vegaEmbed('#graph', 'graph.json').then(result => {
+            console.log('Graph embedded successfully');
+        }).catch(console.error);
+    </script>
+    
 </body>
 </html>
