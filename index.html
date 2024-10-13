@@ -63,12 +63,12 @@
     <!-- Embedding the map and graph using Vega-Lite -->
     <script>
         // Embed the map in the placeholder
-        vegaEmbed('#map', 'map.json').then(result => {
+        vegaEmbed('#map', 'map.json',{ "actions": { "editor": false } }).then(result => {
             console.log('Map embedded successfully');
         }).catch(console.error);
 
         // Embed the graph in the placeholder
-        vegaEmbed('#graph', 'graph.json').then(result => {
+        vegaEmbed('#graph', 'graph.json',{ "actions": { "editor": false } }).then(result => {
             console.log('Graph embedded successfully');
         }).catch(console.error);
     </script>
