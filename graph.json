@@ -1,44 +1,144 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  
+  // Data source configuration
   "data": {
     "url": "https://raw.githubusercontent.com/Vishesh3179/A2/refs/heads/main/Funding.csv"
   },
+  
+  // Configuration for overall chart appearance
+  "config": {
+    "font": "Georgia",  // Font for the entire chart
+    "title": {
+      "fontSize": 20,  // Title font size
+      "fontWeight": "bold",  // Title font weight
+      "font": "Optima",  // Title font family
+      "color": "black",  // Title color
+      "anchor": "start",  // Title anchor position
+      "offset": 10  // Title offset
+    },
+    "axis": {
+      "labelFontSize": 14,  // Axis label font size
+      "titleFontSize": 16,  // Axis title font size
+      "labelColor": "black",  // Axis label color
+      "titleColor": "black",  // Axis title color
+      "titleFont": "Optima"  // Axis title font family
+    }
+  },
+  
+  // Main title of the chart
+  "title": {
+    "text": "Average funding per participant per year",  // Title text
+    "anchor": "middle",  // Title anchor position
+    "color": "black"  // Title color
+  },
+  
+  // Layers of the chart
   "layer": [
     {
-      "mark": "line",
-      "encoding": {
-        "x": {"field": "Year", "type": "ordinal"},
-        "y": {"field": "Average budget", "type": "quantitative"},
-        "color": {"field": "State", "type": "nominal"}
-      }
-    },
-    {
-      "mark": "circle",
-      "encoding": {
-        "x": {"field": "Year", "type": "ordinal"},
-        "y": {"field": "Average budget", "type": "quantitative"},
-        "color": {"field": "State", "type": "nominal"}
-      }
-    },
-    {
-      "encoding": {
-        "x": {"aggregate": "max", "field": "Year", "type": "ordinal"},
-        "y": {"aggregate": {"argmax": "Year"}, "field": "Average budget", "type": "quantitative"},
-        "color": {"field": "State", "type": "nominal"}
+      // Line chart layer
+      "mark": {
+        "type": "line",  // Type of mark
+        "strokeWidth": 3  // Line width
       },
+      "encoding": {
+        "x": {
+          "field": "Year",  // Field for the x-axis
+          "type": "ordinal",  // Type of x-axis
+          "axis": {
+            "title": "Year"  // Title for x-axis
+          }
+        },
+        "y": {
+          "field": "Average budget",  // Field for the y-axis
+          "type": "quantitative",  // Type of y-axis
+          "axis": {
+            "title": "Average funding per participant"  // Title for y-axis
+          }
+        },
+        "color": {
+          "field": "State",  // Field for color encoding
+          "type": "nominal",  // Type for color encoding
+          "scale": {
+            "scheme": "dark2"  // Color scheme
+          }
+        }
+      }
+    },
+    {
+      // Circle mark layer for data points
+      "mark": "circle",  // Type of mark
+      "encoding": {
+        "x": {
+          "field": "Year",  // Field for the x-axis
+          "type": "ordinal"  // Type of x-axis
+        },
+        "y": {
+          "field": "Average budget",  // Field for the y-axis
+          "type": "quantitative"  // Type of y-axis
+        },
+        "color": {
+          "field": "State",  // Field for color encoding
+          "type": "nominal",  // Type for color encoding
+          "scale": {
+            "scheme": "dark2"  // Color scheme
+          }
+        }
+      }
+    },
+    {
+      // Circle mark layer for the highest average budget per state
+      "mark": {
+        "type": "circle",  // Type of mark
+        "stroke": "black",  // Stroke color
+        "strokeWidth": 2,  // Stroke width
+        "fill": "white"  // Fill color
+      },
+      "encoding": {
+        "x": {
+          "aggregate": "max",  // Aggregate function for x-axis
+          "field": "Year",  // Field for the x-axis
+          "type": "ordinal"  // Type of x-axis
+        },
+        "y": {
+          "aggregate": {"argmax": "Year"},  // Aggregate function for y-axis
+          "field": "Average budget",  // Field for the y-axis
+          "type": "quantitative"  // Type of y-axis
+        },
+        "color": {
+          "field": "State",  // Field for color encoding
+          "type": "nominal",  // Type for color encoding
+          "scale": {
+            "scheme": "dark2"  // Color scheme
+          }
+        }
+      },
+      // Layer for the outer circle and state label
       "layer": [
         {
-          "mark": "circle"
+          "mark": {
+            "type": "circle"  // Inner circle mark
+          }
         },
         {
-          "mark": {"type": "text", "align": "left", "dx": 5},
+          // Text layer for state labels
+          "mark": {
+            "type": "text",  // Type of mark
+            "align": "left",  // Text alignment
+            "dx": 10  // Text offset
+          },
           "encoding": {
-            "text": {"field": "State", "type": "nominal"}
+            "text": {
+              "field": "State",  // Field for text encoding
+              "type": "nominal"  // Type for text encoding
+            }
           }
         }
       ]
     }
   ],
-  "width": 400,
-  "height": 200
+  
+  // Dimensions of the chart
+  "width": 600,  // Width of the chart
+  "height": 300  // Height of the chart
 }
