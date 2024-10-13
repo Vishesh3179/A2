@@ -1,25 +1,39 @@
-/* Flexbox Styles */
-
-/* Container for holding the map and graphs in a row */
+/* Flexbox container holding visuals and text underneath */
 .flexbox-container {
-    height: 400px; /* Adjust height for visual elements */
     display: flex;
     justify-content: center;
-    align-items: center; /* Centers content inside the placeholder */
+    align-items: flex-start;
     margin-bottom: 20px; /* Space below flexboxes */
 }
 
-/* Map and Graph placeholders have the same size */
-.map, .graph, .chart {
-    flex: 1; /* Flex items grow to fill available space */
-    margin: 5px; /* Adds space between map, graphs, and charts */
+/* Each visual and its corresponding text */
+.visual-container {
+    flex: 1;
+    margin: 5px;
+    display: flex;
+    flex-direction: column; /* Stacks visual and text vertically */
 }
 
 /* Placeholder height for graphs/maps/charts */
 .placeholder {
-    height: 400px; /* Adjust height for visual elements */
+    height: 400px; /* Height for visual elements */
+    background-color: #fff; /* White background for visuals */
+    border: 1px solid #ccc; /* Border around placeholders */
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
     display: flex;
     justify-content: center;
     align-items: center; /* Centers content inside the placeholder */
-    margin-bottom: 20px; /* Space below flexboxes */
+}
+
+/* Text box styles underneath visuals */
+.text-box {
+    height: 300px; /* Fixed height for text boxes */
+    background-color: #1aa4b8; /* Light blue for text boxes */
+    color: white;
+    padding: 10px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Centers text in the text box */
 }
