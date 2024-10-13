@@ -1,0 +1,44 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "https://raw.githubusercontent.com/Vishesh3179/A2/refs/heads/main/Funding.csv"
+  },
+  "layer": [
+    {
+      "mark": "line",
+      "encoding": {
+        "x": {"field": "Year", "type": "ordinal"},
+        "y": {"field": "Average budget", "type": "quantitative"},
+        "color": {"field": "State", "type": "nominal"}
+      }
+    },
+    {
+      "mark": "circle",
+      "encoding": {
+        "x": {"field": "Year", "type": "ordinal"},
+        "y": {"field": "Average budget", "type": "quantitative"},
+        "color": {"field": "State", "type": "nominal"}
+      }
+    },
+    {
+      "encoding": {
+        "x": {"aggregate": "max", "field": "Year", "type": "ordinal"},
+        "y": {"aggregate": {"argmax": "Year"}, "field": "Average budget", "type": "quantitative"},
+        "color": {"field": "State", "type": "nominal"}
+      },
+      "layer": [
+        {
+          "mark": "circle"
+        },
+        {
+          "mark": {"type": "text", "align": "left", "dx": 5},
+          "encoding": {
+            "text": {"field": "State", "type": "nominal"}
+          }
+        }
+      ]
+    }
+  ],
+  "width": 400,
+  "height": 200
+}
