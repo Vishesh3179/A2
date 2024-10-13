@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
-    "text": "Choropleth Map of Active Participants (2019)",
+    "text": "Choropleth Map of Active Participants",
     "anchor": "middle",
     "fontSize": 20,
     "fontWeight": "bold",
@@ -21,24 +21,31 @@
       "color": "black"
     }
   },
+  "selection": {
+    "YearSelector": {
+      "type": "single",
+      "fields": ["Year"],
+      "bind": {
+        "input": "select",
+        "options": [2019, 2020, 2021, 2022, 2023, 2024],
+        "labels": ["2019", "2020", "2021", "2022", "2023", "2024"]
+      },
+      "init": {"Year": 2019}
+    }
+  },
   "transform": [
     {
       "lookup": "properties.SA4_CODE21",
       "from": {
         "data": {
-          "url": "https://raw.githubusercontent.com/Vishesh3179/A2/refs/heads/main/SA4_participants_count.csv",
+          "url": {
+            "expr": "concat('https://raw.githubusercontent.com/Vishesh3179/A2/refs/heads/main/SA4_', datum.Year, '.csv')"
+          },
           "format": {"type": "csv"}
         },
         "key": "Key",
-        "fields": ["Normalised Active Participants (Participants/10000 residents)", "Year"]
+        "fields": ["Normalised Active Participants", "Year"]
       }
-    },
-    {
-      "calculate": "toNumber(datum.Year)",
-      "as": "Year_num"
-    },
-    {
-      "filter": "datum.Year_num === 2019"
     }
   ],
   "projection": {
@@ -49,7 +56,7 @@
       "mark": {"type": "geoshape"},
       "encoding": {
         "color": {
-          "field": "Normalised Active Participants (Participants/10000 residents)",
+          "field": "Normalised Active Participants",
           "type": "quantitative",
           "scale": {
             "type": "threshold",
@@ -57,14 +64,14 @@
             "range": ["#fdbe85", "#fd8d3c", "#e6550d", "#a63603", "#7f2704"]
           },
           "condition": {
-            "test": "datum['Normalised Active Participants (Participants/10000 residents)'] === null || datum['Normalised Active Participants (Participants/10000 residents)'] === 0",
+            "test": "datum['Normalised Active Participants'] === null || datum['Normalised Active Participants'] === 0",
             "value": "lightgray"
           }
         },
         "tooltip": [
           {"field": "properties.SA4_NAME21", "type": "nominal", "title": "Region Name"},
-          {"field": "Normalised Active Participants (Participants/10000 residents)", "type": "quantitative", "title": "Participants per 10,000 Residents"},
-          {"field": "Year_num", "type": "ordinal", "title": "Year"},
+          {"field": "Normalised Active Participants", "type": "quantitative", "title": "Participants per 10,000 Residents"},
+          {"field": "Year", "type": "ordinal", "title": "Year"},
           {"field": "properties.SA4_CODE21", "type": "nominal", "title": "SA4 Code"}
         ]
       }
