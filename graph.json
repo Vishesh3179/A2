@@ -1,39 +1,106 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "data": {"url": "https://raw.githubusercontent.com/Vishesh3179/A2/refs/heads/main/Funding.csv"},
+  "data": {
+    "url": "https://raw.githubusercontent.com/Vishesh3179/A2/refs/heads/main/Funding.csv"
+  },
   "config": {
     "font": "Georgia",
-    "title": {"fontSize": 20, "fontWeight": "bold", "font": "Optima", "color": "black", "anchor": "start", "offset": 10},
-    "axis": {"labelFontSize": 14, "titleFontSize": 16, "labelColor": "black", "titleColor": "black", "titleFont": "Optima"}
+    "title": {
+      "fontSize": 20,
+      "fontWeight": "bold",
+      "font": "Optima",
+      "color": "black",
+      "anchor": "start",
+      "offset": 10
+    },
+    "axis": {
+      "labelFontSize": 14,
+      "titleFontSize": 16,
+      "labelColor": "black",
+      "titleColor": "black",
+      "titleFont": "Optima"
+    }
   },
-  "title": {"text": "Average funding per participant per year", "anchor": "middle", "color": "black"},
-  
+  "background": "#e0e0e5", 
+  "width": 600,
+  "height": 300,
+  "title": {
+    "text": "Average funding per participant per year",
+    "anchor": "middle",
+    "color": "black"
+  },
   "layer": [
     {
-      "mark": {"type": "line", "strokeWidth": 3},
+      "mark": {
+        "type": "line",
+        "strokeWidth": 3
+      },
       "encoding": {
-        "x": {"field": "Year", "type": "ordinal", "axis": {"title": "Year"}},
-        "y": {"field": "Average budget", "type": "quantitative", "axis": {"title": "Average funding per participant"}},
-        "color": {"field": "State", "type": "nominal", "scale": {"scheme": "dark2"}}
+        "x": {
+          "field": "Year",
+          "type": "ordinal",
+          "axis": {
+            "title": "Year"
+          }
+        },
+        "y": {
+          "field": "Average budget",
+          "type": "quantitative",
+          "axis": {
+            "title": "Average funding per participant"
+          }
+        },
+        "color": {
+          "field": "State",
+          "type": "nominal",
+          "scale": {
+            "scheme": "dark2"
+          }
+        }
       }
     },
     {
       "mark": "circle",
       "encoding": {
-        "x": {"field": "Year", "type": "ordinal"},
-        "y": {"field": "Average budget", "type": "quantitative"},
-        "color": {"field": "State", "type": "nominal", "scale": {"scheme": "dark2"}},
+        "x": {
+          "field": "Year",
+          "type": "ordinal"
+        },
+        "y": {
+          "field": "Average budget",
+          "type": "quantitative"
+        },
+        "color": {
+          "field": "State",
+          "type": "nominal",
+          "scale": {
+            "scheme": "dark2"
+          }
+        },
         "tooltip": [
-          {"field": "State", "type": "nominal"},
-          {"field": "Year", "type": "ordinal"},
-          {"field": "Average budget", "type": "quantitative"},
-          {"field": "Active participants", "type": "quantitative"},
-          {"field": "Total funding", "type": "nominal", "format": "$,.2f"}
-          
+          {
+            "field": "State",
+            "type": "nominal"
+          },
+          {
+            "field": "Year",
+            "type": "ordinal"
+          },
+          {
+            "field": "Average budget",
+            "type": "quantitative"
+          },
+          {
+            "field": "Active participants",
+            "type": "quantitative"
+          },
+          {
+            "field": "Total funding",
+            "type": "nominal",
+            "format": "$,.2f"
+          }
         ]
       }
     }
-  ],
-  "width": 600,
-  "height": 300
+  ]
 }
