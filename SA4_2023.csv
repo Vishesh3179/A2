@@ -1,0 +1,97 @@
+﻿Year,State,Key,Region name,Active participants,Poppulation,Normalised Active Participants
+2023,ACT,801,Australian Capital Territory,10747,412025,261
+2023,NSW,901,Other Territories,13,4621,28
+2023,NSW,119,Sydney - Inner South West,11612,611111,190
+2023,NSW,125,Sydney - Parramatta,10338,481486,215
+2023,NSW,127,Sydney - South West,11270,433039,260
+2023,NSW,121,Sydney - North Sydney and Hornsby,5669,431365,131
+2023,NSW,801,Australian Capital Territory,0,412025,0
+2023,NSW,111,Newcastle and Lake Macquarie,13496,372516,362
+2023,NSW,116,Sydney - Blacktown,10563,360420,293
+2023,NSW,117,Sydney - City and Inner South,4376,349046,125
+2023,NSW,102,Central Coast,10898,339442,321
+2023,NSW,124,Sydney - Outer West and Blue Mountains,10235,319258,321
+2023,NSW,120,Sydney - Inner West,4251,314231,135
+2023,NSW,107,Illawarra,8056,306795,263
+2023,NSW,118,Sydney - Eastern Suburbs,3587,289775,124
+2023,NSW,123,Sydney - Outer South West,9091,276174,329
+2023,NSW,106,Hunter Valley exc Newcastle,10861,272630,398
+2023,NSW,122,Sydney - Northern Beaches,3798,268870,141
+2023,NSW,112,Richmond - Tweed,7552,248630,304
+2023,NSW,115,Sydney - Baulkham Hills and Hawkesbury,4465,241029,185
+2023,NSW,128,Sydney - Sutherland,4212,227146,185
+2023,NSW,101,Capital Region,5837,225797,259
+2023,NSW,108,Mid North Coast,8022,218360,367
+2023,NSW,103,Central West,5885,211356,278
+2023,NSW,126,Sydney - Ryde,3303,194527,170
+2023,NSW,110,New England and North West,5097,186305,274
+2023,NSW,113,Riverina,4365,160156,273
+2023,NSW,114,Southern Highlands and Shoalhaven,4149,152584,272
+2023,NSW,104,Coffs Harbour - Grafton,4431,140150,316
+2023,NSW,109,Murray,3738,118977,314
+2023,NSW,105,Far West and Orana,3491,116761,299
+2023,NT,702,Northern Territory - Outback,2349,98598,238
+2023,NT,406,South Australia - Outback,52,85127,6
+2023,NT,510,Western Australia - Outback (North),0,97506,0
+2023,NT,701,Darwin,3523,148919,237
+2023,NT,511,Western Australia - Outback (South),16,120092,1
+2023,QLD,315,Queensland - Outback,1560,82186,190
+2023,QLD,702,Northern Territory - Outback,0,98598,0
+2023,QLD,309,Gold Coast,14618,606073,241
+2023,QLD,316,Sunshine Coast,10055,365764,275
+2023,QLD,303,Brisbane - South,7606,363783,209
+2023,QLD,310,Ipswich,12388,342444,362
+2023,QLD,311,Logan - Beaudesert,11734,335006,350
+2023,QLD,319,Wide Bay,11331,294337,385
+2023,QLD,305,Brisbane Inner City,4402,273624,161
+2023,QLD,306,Cairns,6267,249671,251
+2023,QLD,313,Moreton Bay - North,9428,247397,381
+2023,QLD,318,Townsville,7316,235634,310
+2023,QLD,301,Brisbane - East,6471,234582,276
+2023,QLD,308,Central Queensland,7483,225302,332
+2023,QLD,302,Brisbane - North,5179,218454,237
+2023,QLD,314,Moreton Bay - South,6093,207827,293
+2023,QLD,304,Brisbane - West,3826,189400,202
+2023,QLD,312,Mackay - Isaac - Whitsunday,4331,172557,251
+2023,QLD,317,Toowoomba,5218,154805,337
+2023,QLD,307,Darling Downs - Maranoa,3383,128783,263
+2023,SA,406,South Australia - Outback,2337,85127,275
+2023,SA,402,Adelaide - North,18378,434336,423
+2023,SA,403,Adelaide - South,11948,365104,327
+2023,SA,401,Adelaide - Central and Hills,6942,300017,231
+2023,SA,404,Adelaide - West,6980,234981,297
+2023,SA,407,South Australia - South East,5594,190793,293
+2023,SA,405,Barossa - Yorke - Mid North,3318,113565,292
+2023,TAS,603,South East,772,38062,203
+2023,TAS,601,Hobart,6027,229260,263
+2023,TAS,602,Launceston and North East,4017,143815,279
+2023,TAS,604,West and North West,3038,111273,273
+2023,VIC,212,Melbourne - South East,20630,818212,252
+2023,VIC,213,Melbourne - West,25242,791104,319
+2023,VIC,206,Melbourne - Inner,10214,658882,155
+2023,VIC,209,Melbourne - North East,14744,533165,277
+2023,VIC,211,Melbourne - Outer East,14036,525721,267
+2023,VIC,208,Melbourne - Inner South,7958,432935,184
+2023,VIC,210,Melbourne - North West,12831,393316,326
+2023,VIC,207,Melbourne - Inner East,6496,386041,168
+2023,VIC,214,Mornington Peninsula,9679,304552,318
+2023,VIC,203,Geelong,11463,293975,390
+2023,VIC,205,Latrobe - Gippsland,9278,279310,332
+2023,VIC,204,Hume,5501,174580,315
+2023,VIC,201,Ballarat,5568,162339,343
+2023,VIC,202,Bendigo,6459,157806,409
+2023,VIC,215,North West,4820,152073,317
+2023,VIC,216,Shepparton,4338,132892,326
+2023,VIC,217,Warrnambool and South West,3948,124703,317
+2023,WA,510,Western Australia - Outback (North),1703,97506,175
+2023,WA,702,Northern Territory - Outback,19,98598,2
+2023,WA,406,South Australia - Outback,0,85127,0
+2023,WA,901,Other Territories,0,4621,0
+2023,WA,505,Perth - North West,11263,560831,201
+2023,WA,506,Perth - South East,11297,510653,221
+2023,WA,507,Perth - South West,9772,423839,231
+2023,WA,504,Perth - North East,6978,262253,266
+2023,WA,501,Bunbury,4514,181052,249
+2023,WA,503,Perth - Inner,2605,179755,145
+2023,WA,509,Western Australia - Wheat Belt,2610,137641,190
+2023,WA,511,Western Australia - Outback (South),2393,120092,199
