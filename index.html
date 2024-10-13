@@ -4,6 +4,9 @@
     <title>Visual Design Layout</title>
     <link rel="stylesheet" href="style.css"> <!-- Link to main styles -->
     <link rel="stylesheet" href="flexbox.css"> <!-- Link to flexbox styles -->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script> <!-- Vega Embed library -->
 </head>
 <body>
 
@@ -16,16 +19,22 @@
     <!-- First Section Heading -->
     <h2>Section Heading: Map and Graph</h2>
 
-    <!-- First Flexbox: Contains the map and graph with text underneath -->
+    <!-- First Flexbox: Contains the map and graph -->
     <div class="flexbox-container">
-        <div class="visual-container">
-            <div class="placeholder">Map Placeholder</div>
-            <div class="text-box">Text related to the map.</div>
+        <div class="map">
+            <!-- Placeholder for Map -->
+            <div class="placeholder" id="choropleth-map">Choropleth Map Placeholder</div>
         </div>
-        <div class="visual-container">
+        <div class="chart">
+            <!-- Placeholder for Graph -->
             <div class="placeholder">Graph Placeholder</div>
-            <div class="text-box">Text for the graph.</div>
         </div>
+    </div>
+
+    <!-- Texts associated with the map and graph -->
+    <div class="flexbox-container">
+        <div class="text-box">Text related to the map.</div>
+        <div class="text-box">Text for the graph.</div>
     </div>
 
     <!-- Second Section Heading -->
@@ -41,21 +50,36 @@
         </select>
     </div>
 
-    <!-- Second Flexbox: Contains three charts with text underneath -->
+    <!-- Second Flexbox: Contains three charts -->
     <div class="flexbox-container">
-        <div class="visual-container">
+        <div class="chart">
+            <!-- Placeholder for Chart 1 -->
             <div class="placeholder">Chart 1 Placeholder</div>
-            <div class="text-box">Text for Chart 1.</div>
         </div>
-        <div class="visual-container">
+        <div class="chart">
+            <!-- Placeholder for Chart 2 -->
             <div class="placeholder">Chart 2 Placeholder</div>
-            <div class="text-box">Text for Chart 2.</div>
         </div>
-        <div class="visual-container">
+        <div class="chart">
+            <!-- Placeholder for Chart 3 -->
             <div class="placeholder">Chart 3 Placeholder</div>
-            <div class="text-box">Text for Chart 3.</div>
         </div>
     </div>
+
+    <!-- Texts associated with the three charts -->
+    <div class="flexbox-container">
+        <div class="text-box">Text for Chart 1.</div>
+        <div class="text-box">Text for Chart 2.</div>
+        <div class="text-box">Text for Chart 3.</div>
+    </div>
+
+    <script>
+        // Load the choropleth map from the JSON file
+        vegaEmbed('#choropleth-map', 'map.json')
+            .then(function(result) {
+                // Visualization is successfully created
+            }).catch(console.error);
+    </script>
 
 </body>
 </html>
