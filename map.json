@@ -1,6 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {"text": "Choropleth Map of Active Participants by Region", "color": "black", "font": "Optima", "fontSize": 20, "fontWeight": "bold", "offset": 10},
+  "background-color": #e0e0e5,
   "width": 600,
   "height": 300,
   "params": [{"name": "Year_selection", "value": 2019, "bind": {"input": "range", "min": 2019, "max": 2024, "step": 1, "name": "Year:"}}],
