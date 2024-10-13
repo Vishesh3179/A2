@@ -22,27 +22,16 @@
       "encoding": {
         "x": {"field": "Year", "type": "ordinal"},
         "y": {"field": "Average budget", "type": "quantitative"},
-        "color": {"field": "State", "type": "nominal", "scale": {"scheme": "dark2"}}
+        "color": {"field": "State", "type": "nominal", "scale": {"scheme": "dark2"}},
+        "tooltip": [
+          {"field": "State", "type": "nominal"},
+          {"field": "Year", "type": "ordinal"},
+          {"field": "Average budget", "type": "quantitative"},
+          {"field": "Active participants", "type": "quantitative"},
+          {"field": "Total funding", "type": "nominal", "format": "$,.2f"}
+          
+        ]
       }
-    },
-    {
-      "mark": {"type": "circle", "stroke": "black", "strokeWidth": 2, "fill": "white"},
-      "encoding": {
-        "x": {"aggregate": "max", "field": "Year", "type": "ordinal"},
-        "y": {"aggregate": {"argmax": "Year"}, "field": "Average budget", "type": "quantitative"},
-        "color": {"field": "State", "type": "nominal", "scale": {"scheme": "dark2"}}
-      },
-      "layer": [
-        {
-          "mark": {"type": "circle"}
-        },
-        {
-          "mark": {"type": "text", "align": "left", "dx": 10},
-          "encoding": {
-            "text": {"field": "State", "type": "nominal"}
-          }
-        }
-      ]
     }
   ],
   "width": 600,
