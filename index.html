@@ -10,72 +10,52 @@
 </head>
 <body>
 
-    <!-- Main Heading and Text in the same box -->
+    <!-- Main Heading -->
     <div class="main-heading">
         <h1>Main Heading: Visual Design Layout</h1>
-        <p>This layout consists of a map, a graph, and three additional charts, along with associated text.</p>
+        <p>This layout consists of a map, a graph, and additional charts.</p>
     </div>
 
     <!-- First Section Heading -->
     <h2>Section Heading: Map and Graph</h2>
 
-    <!-- First Flexbox: Contains the map and graph -->
+    <!-- Flexbox: Contains the map and graph -->
     <div class="flexbox-container">
-        <div class="map">
+        <div class="section">
             <h3>Map Heading</h3>
             <!-- Embed the Vega-Lite map -->
-            <div id="map-placeholder" style="height: 400px;"></div>
-            <!-- Text associated with the map -->
-            <div class="text-box">Text related to the map.</div>
+            <div id="map-placeholder" class="placeholder"></div>
         </div>
-        <div class="chart">
+        <div class="section">
             <h3>Graph Heading</h3>
-            <!-- Placeholder for Graph -->
-            <div id="graph-placeholder" style="height: 300px;"></div>
-            <!-- Text associated with the graph -->
-            <div class="text-box">Text for the graph.</div>
+            <!-- Embed the Vega-Lite graph -->
+            <div id="graph-placeholder" class="placeholder"></div>
         </div>
     </div>
 
     <!-- Second Section Heading -->
-    <h2>Section Heading: Additional Information</h2>
+    <h2>Section Heading: Additional Charts</h2>
 
-    <!-- Toggle Option for State Selection -->
-    <div class="toggle-option">
-        <label for="state-select">Choose a state:</label>
-        <select id="state-select">
-            <option value="state1">State 1</option>
-            <option value="state2">State 2</option>
-            <option value="state3">State 3</option>
-        </select>
-    </div>
-
-    <!-- Second Flexbox: Contains three charts -->
+    <!-- Flexbox: Contains three charts -->
     <div class="flexbox-container">
-        <div class="chart">
+        <div class="section">
             <h3>Chart 1 Heading</h3>
             <!-- Placeholder for Chart 1 -->
             <div class="placeholder">Chart 1 Placeholder</div>
-            <!-- Text for Chart 1 -->
-            <div class="text-box">Text for Chart 1.</div>
         </div>
-        <div class="chart">
+        <div class="section">
             <h3>Chart 2 Heading</h3>
             <!-- Placeholder for Chart 2 -->
             <div class="placeholder">Chart 2 Placeholder</div>
-            <!-- Text for Chart 2 -->
-            <div class="text-box">Text for Chart 2.</div>
         </div>
-        <div class="chart">
+        <div class="section">
             <h3>Chart 3 Heading</h3>
             <!-- Placeholder for Chart 3 -->
             <div class="placeholder">Chart 3 Placeholder</div>
-            <!-- Text for Chart 3 -->
-            <div class="text-box">Text for Chart 3.</div>
         </div>
     </div>
 
-    <!-- Embed the Vega-Lite graph and map -->
+    <!-- Embed the Vega-Lite map and graph -->
     <script>
         // Embed the map
         vegaEmbed('#map-placeholder', 'map.json').then(function(result) {
