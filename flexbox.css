@@ -2,8 +2,10 @@
 
 /* Container for holding the map and graphs in a row */
 .flexbox-container {
+    height: 400px; /* Adjust height for visual elements */
     display: flex;
-    justify-content: space-between; /* Ensures space between items */
+    justify-content: center;
+    align-items: center; /* Centers content inside the placeholder */
     margin-bottom: 20px; /* Space below flexboxes */
 }
 
@@ -15,8 +17,9 @@
 
 /* Placeholder height for graphs/maps/charts */
 .placeholder {
-    height: 200px; /* Adjust height for visual elements */
+    height: 400px; /* Adjust height for visual elements */
     display: flex;
     justify-content: center;
     align-items: center; /* Centers content inside the placeholder */
+    margin-bottom: 20px; /* Space below flexboxes */
 }
