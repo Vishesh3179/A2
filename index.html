@@ -4,6 +4,9 @@
     <title>Visual Design Layout</title>
     <link rel="stylesheet" href="style.css"> <!-- Link to main styles -->
     <link rel="stylesheet" href="flexbox.css"> <!-- Link to flexbox styles -->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 </head>
 <body>
 
@@ -19,19 +22,19 @@
     <!-- First Flexbox: Contains the map and graph -->
     <div class="flexbox-container">
         <div class="map">
-          <h3>Map Heading</h3>
-          <!-- Placeholder for Map -->
-          <div class="placeholder">Map Placeholder</div>
-          <!-- Text associated with the map -->
-          <div class="text-box">Text related to the map.</div>
+            <h3>Map Heading</h3>
+            <!-- Placeholder for Map -->
+            <div class="placeholder">Map Placeholder</div>
+            <!-- Text associated with the map -->
+            <div class="text-box">Text related to the map.</div>
         </div>
         <div class="chart">
-          <h3>Graph Heading</h3>
-          <!-- Placeholder for Graph -->
-          <div class="placeholder">Graph Placeholder</div>
-          <!-- Text associated with the graph -->
-          <div class="text-box">Text for the graph.</div>
-      </div>
+            <h3>Graph Heading</h3>
+            <!-- Placeholder for Graph -->
+            <div id="graph-placeholder"></div>
+            <!-- Text associated with the graph -->
+            <div class="text-box">Text for the graph.</div>
+        </div>
     </div>
 
     <!-- Second Section Heading -->
@@ -71,6 +74,13 @@
             <div class="text-box">Text for Chart 3.</div>
         </div>
     </div>
+
+    <!-- Embed the Vega-Lite graph -->
+    <script>
+        vegaEmbed('#graph-placeholder', 'graph.json').then(function(result) {
+            // Access the Vega view instance if needed
+        }).catch(console.error);
+    </script>
 
 </body>
 </html>
