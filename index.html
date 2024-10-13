@@ -23,15 +23,15 @@
     <div class="flexbox-container">
         <div class="map">
             <h3>Map Heading</h3>
-            <!-- Placeholder for Map -->
-            <div class="placeholder">Map Placeholder</div>
+            <!-- Embed the Vega-Lite map -->
+            <div id="map-placeholder" style="height: 400px;"></div>
             <!-- Text associated with the map -->
             <div class="text-box">Text related to the map.</div>
         </div>
         <div class="chart">
             <h3>Graph Heading</h3>
             <!-- Placeholder for Graph -->
-            <div id="graph-placeholder"></div>
+            <div id="graph-placeholder" style="height: 300px;"></div>
             <!-- Text associated with the graph -->
             <div class="text-box">Text for the graph.</div>
         </div>
@@ -75,8 +75,14 @@
         </div>
     </div>
 
-    <!-- Embed the Vega-Lite graph -->
+    <!-- Embed the Vega-Lite graph and map -->
     <script>
+        // Embed the map
+        vegaEmbed('#map-placeholder', 'map.json').then(function(result) {
+            // Access the Vega view instance if needed
+        }).catch(console.error);
+
+        // Embed the graph
         vegaEmbed('#graph-placeholder', 'graph.json').then(function(result) {
             // Access the Vega view instance if needed
         }).catch(console.error);
