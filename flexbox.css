@@ -28,7 +28,7 @@
 
 /* Text box styles underneath visuals */
 .text-box {
-    height: 300px; /* Fixed height for text boxes */
+    height: 250px; /* Fixed height for text boxes */
     background-color: #1aa4b8; /* Light blue for text boxes */
     color: white;
     padding: 10px;
