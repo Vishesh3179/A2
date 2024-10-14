@@ -6,11 +6,11 @@
     "font": "Optima",
     "fontSize": 20,
     "fontWeight": "bold",
-    "offset": -10
+    "offset": -20
   },
   "background": "#e0e0e5",
   "width": 600,
-  "height": 350,
+  "height": 600,
   "params": [
     {
       "name": "Year_selection",
@@ -55,10 +55,10 @@
     },
     {
       "name": "zoom_level",
-      "value": 442,
+      "value": 760,
       "bind": {
         "input": "range",
-        "min": 500,
+        "min": 760,
         "max": 1500,
         "step": 100,
         "name": "Zoom:"
