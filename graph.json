@@ -64,7 +64,7 @@
             "scheme": "dark2"
           },
           "legend": {
-            "orient": "bottom"  // Position the legend at the bottom
+            "orient": "bottom"  
           }
         },
         "opacity": {
@@ -94,7 +94,7 @@
             "scheme": "dark2"
           },
           "legend": {
-            "orient": "bottom"  // Position the legend at the bottom
+            "orient": "bottom"  
           }
         },
         "tooltip": [
