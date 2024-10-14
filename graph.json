@@ -35,7 +35,7 @@
         "state_highlight": {
           "type": "multi",
           "fields": ["State"],
-          "bind": "legend"  // Bind the selection to the legend
+          "bind": "legend" 
         }
       },
       "mark": {
@@ -67,9 +67,9 @@
         "opacity": {
           "condition": {
             "selection": "state_highlight",
-            "value": 1  // Full opacity for highlighted states
+            "value": 1  
           },
-          "value": 0.2  // Default opacity for non-selected states
+          "value": 0.2  
         }
       }
     },
