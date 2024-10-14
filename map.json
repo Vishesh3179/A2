@@ -73,7 +73,7 @@
   "config": {
     "font": "Georgia",
     "legend": {
-      "orient": "bottom-right",
+      "orient": "right",
       "labelFontSize": 10,
       "titleFontSize": 10
     }
