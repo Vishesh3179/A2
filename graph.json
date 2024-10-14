@@ -23,7 +23,7 @@
   },
   "background": "#e0e0e5",
   "width": 600,
-  "height": 400,
+  "height": 350,
   "title": {
     "text": "Average Funding per Participant per Year",
     "anchor": "middle",
@@ -62,6 +62,9 @@
           "type": "nominal",
           "scale": {
             "scheme": "dark2"
+          },
+          "legend": {
+            "orient": "bottom"  // Position the legend at the bottom
           }
         },
         "opacity": {
@@ -89,6 +92,9 @@
           "type": "nominal",
           "scale": {
             "scheme": "dark2"
+          },
+          "legend": {
+            "orient": "bottom"  // Position the legend at the bottom
           }
         },
         "tooltip": [
