@@ -10,7 +10,7 @@
   },
   "background": "#e0e0e5",
   "width": 600,
-  "height": 300,
+  "height": 350,
   "params": [
     {
       "name": "Year_selection",
@@ -55,7 +55,7 @@
     },
     {
       "name": "zoom_level",
-      "value": 520,
+      "value": 442,
       "bind": {
         "input": "range",
         "min": 500,
