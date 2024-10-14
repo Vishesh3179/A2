@@ -23,7 +23,7 @@
   },
   "background": "#e0e0e5", 
   "width": 600,
-  "height": 425,
+  "height": 420,
   "title": {
     "text": "Average funding per participant per year",
     "anchor": "middle",
