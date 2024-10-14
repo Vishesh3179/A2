@@ -10,7 +10,7 @@
   },
   "background": "#e0e0e5",
   "width": 600,
-  "height": 400,
+  "height": 300,
   "params": [
     {
       "name": "Year_selection",
