@@ -25,22 +25,22 @@
     },
     {
       "name": "center_to",
-      "value": [133.7751, -25.2744],  // Initial center set to Australia's geographical center
+      "value": [133.7751, -25.2744],  
       "bind": {
         "input": "select",
         "options": [
-          [133.7751, -25.2744],   // Australia's geographical center
-          [151.2093, -33.8688],   // Sydney (NSW)
-          [144.9631, -37.8136],   // Melbourne (VIC)
-          [153.0251, -27.4698],   // Brisbane (QLD)
-          [115.8575, -31.9505],   // Perth (WA)
-          [138.6007, -34.9285],   // Adelaide (SA)
-          [147.3272, -42.8821],   // Tasmania
-          [130.8456, -12.4634],   // Darwin (NT)
-          [149.1310, -35.2809]    // Canberra (ACT)
+          [133.7751, -25.2744],   
+          [151.2093, -33.8688],   
+          [144.9631, -37.8136],   
+          [153.0251, -27.4698],   
+          [115.8575, -31.9505],   
+          [138.6007, -34.9285],   
+          [147.3272, -42.8821],   
+          [130.8456, -12.4634],   
+          [149.1310, -35.2809]    
         ],
         "labels": [
-          "Australia",            // Label for Australia's center
+          "Australia",           
           "New South Wales",
           "Victoria",
           "Queensland",
