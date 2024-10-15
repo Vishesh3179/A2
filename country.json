@@ -1,0 +1,93 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "background": "#e0e0e5",
+  "params": [{
+    "name": "selectedState",
+    "value": "Australia",
+    "bind": {
+      "input": "select",
+      "options": ["Australia", "New South Wales", "Victoria", "Queensland", "South Australia", "Western Australia", "Tasmania", "Northern Territory", "Australian Capital Territory"],
+      "name": "Select State: "
+    }
+  }],
+  "hconcat": [{
+    "title": "Active Participants by Age Group",
+    "data": {"url": "https://raw.githubusercontent.com/Vishesh3179/A2/refs/heads/main/By%20age%20group.csv"},
+    "transform": [
+      {"filter": "datum.State == (selectedState == 'New South Wales' ? 'NSW' : selectedState == 'Victoria' ? 'VIC' : selectedState == 'Queensland' ? 'QLD' : selectedState == 'South Australia' ? 'SA' : selectedState == 'Western Australia' ? 'WA' : selectedState == 'Tasmania' ? 'TAS' : selectedState == 'Northern Territory' ? 'NT' : selectedState == 'Australian Capital Territory' ? 'ACT' : 'Australia')"},
+      {"aggregate": [{"op": "average", "field": "Active Participants", "as": "total"}], "groupby": ["Age group"]},
+      {"window": [{"op": "sum", "field": "total", "as": "TotalParticipants"}]},
+      {"calculate": "datum.total / datum.TotalParticipants * 100", "as": "percent"}
+    ],
+    "layer": [
+      {"mark": {"type": "arc", "outerRadius": 140}},
+      {"mark": {"type": "text", "radius": 160}, "encoding": {"text": {"field": "Age group"}}}
+    ],
+    "encoding": {
+      "theta": {"field": "total", "type": "quantitative", "stack": true},
+      "color": {"field": "Age group", "type": "nominal", "legend": null},
+      "tooltip": [
+        {"field": "Age group", "title": "Age Group"},
+        {"field": "total", "title": "Active Participants"},
+        {"field": "percent", "title": "% of Total", "format": ".1f"},
+        {"field": "State"}
+      ]
+    },
+    "width": 400,
+    "height": 300
+  },{
+    "title": "Top 5 Disabilities by Active Participants",
+    "data": {"url": "https://raw.githubusercontent.com/Vishesh3179/A2/refs/heads/main/By%20disability%20group.csv"},
+    "transform": [
+      {"filter": "datum.State == (selectedState == 'New South Wales' ? 'NSW' : selectedState == 'Victoria' ? 'VIC' : selectedState == 'Queensland' ? 'QLD' : selectedState == 'South Australia' ? 'SA' : selectedState == 'Western Australia' ? 'WA' : selectedState == 'Tasmania' ? 'TAS' : selectedState == 'Northern Territory' ? 'NT' : selectedState == 'Australian Capital Territory' ? 'ACT' : 'Australia')"},
+      {"calculate": "toNumber(datum['Active Participants'])", "as": "ActiveParticipants"},
+      {"window": [{"op": "rank", "as": "rank"}], "sort": [{"field": "ActiveParticipants", "order": "descending"}]},
+      {"filter": "datum.rank <= 5"}
+    ],
+    "mark": "bar",
+    "encoding": {
+      "x": {"field": "ActiveParticipants", "type": "quantitative", "title": "Active Participants"},
+      "y": {"field": "Disability", "type": "nominal", "sort": "-x", "title": "Disability Group"},
+      "tooltip": [
+        {"field": "Disability", "title": "Disability Group"},
+        {"field": "ActiveParticipants", "title": "Active Participants"},
+        {"field": "rank", "title": "Rank"},
+        {"field": "State"}
+      ]
+    },
+    "width": 400,
+    "height": 300
+  }, {
+    "title": "Active Participants vs Participant/Provider Ratio",
+    "data": {"url": "https://raw.githubusercontent.com/Vishesh3179/A2/refs/heads/main/Providers%20by%20disability.csv"},
+    "transform": [
+      {"filter": "datum.State == (selectedState == 'New South Wales' ? 'NSW' : selectedState == 'Victoria' ? 'VIC' : selectedState == 'Queensland' ? 'QLD' : selectedState == 'South Australia' ? 'SA' : selectedState == 'Western Australia' ? 'WA' : selectedState == 'Tasmania' ? 'TAS' : selectedState == 'Northern Territory' ? 'NT' : selectedState == 'Australian Capital Territory' ? 'ACT' : 'Australia')"},
+      {"calculate": "toNumber(datum['Active Participants'])", "as": "ActiveParticipants"},
+      {"calculate": "toNumber(datum['Participant/Provider ratio'])", "as": "ParticipantProviderRatio"}
+    ],
+    "mark": {"type": "circle", "size": 200},
+    "encoding": {
+      "x": {"field": "ActiveParticipants", "type": "quantitative", "title": "Active Participants"},
+      "y": {"field": "ParticipantProviderRatio", "type": "quantitative", "title": "Participant/Provider Ratio"},
+      "size": {"field": "Active providers", "type": "quantitative", "title": "Active Providers", "scale": {"range": [0, 1500]}},
+      "color": {
+        "field": "Disability group", 
+        "type": "nominal", 
+        "title": "Disability Group"
+      },
+      "tooltip": [
+        {"field": "State"},
+        {"field": "Disability group", "title": "Disability Group"},
+        {"field": "ActiveParticipants", "title": "Active Participants"},
+        {"field": "ParticipantProviderRatio", "title": "Participant/Provider Ratio"}
+      ]
+    },
+    "width": 400,
+    "height": 300
+  }],
+  "config": {
+    "font": "Georgia",
+    "title": {"fontSize": 20,"offset": 20, "fontWeight": "bold", "font": "Optima", "color": "black", "anchor": "middle"},
+    "axis": {"labelFontSize": 14, "titleFontSize": 16, "labelColor": "black", "titleColor": "black", "titleFont": "Optima"}
+  }
+}
