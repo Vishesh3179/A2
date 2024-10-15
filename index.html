@@ -50,7 +50,7 @@
     </div>
 
     <!-- Second Flexbox: Contains three charts with text underneath -->
-    <div class="flexbox-container" id="charts-placeholder">
+    <div class="flexbox-container">
         <div class="visual-container">
             <div id="scatter"></div> <!-- Scatter Chart Placeholder -->
             <div class="text-box">Text for Scatter Chart.</div>
@@ -67,24 +67,17 @@
 
     <!-- Embedding the map and graph using Vega-Lite -->
     <script>
-        // Embed the map in the placeholder
-        vegaEmbed('#map', 'map.json', { "actions": false }).then(result => {
-            console.log('Map embedded successfully');
-        }).catch(console.error);
-
-        // Embed the main graph in the placeholder
-        vegaEmbed('#graph', 'graph.json', { "actions": false }).then(result => {
-            console.log('Graph embedded successfully');
-        }).catch(console.error);
-
-        // Function to update the graphs based on selected state
+        // Function to update the charts based on the selected state
         function updateGraphs() {
+            // Get the selected state value
             const selectedState = document.getElementById('state-select').value;
 
-            // State parameter to pass to all graphs
-            const stateParam = { "State": selectedState };
+            // Update the state parameter for each chart
+            const stateParam = {
+                "State": selectedState
+            };
 
-            // Update each chart with the selected state
+            // Re-embed each chart with the updated state parameter
             vegaEmbed('#pie', 'pie.json', { "actions": false, "params": stateParam }).then(result => {
                 console.log('Pie chart updated successfully');
             }).catch(console.error);
@@ -99,7 +92,22 @@
         }
 
         // Initial graph rendering
-        window.onload = updateGraphs; // Call updateGraphs on page load to render initial graphs
+        function renderGraphs() {
+            updateGraphs(); // Initial render with default state
+        }
+
+        // Render the graphs on page load
+        window.onload = renderGraphs;
+
+        // Embed the map in the placeholder
+        vegaEmbed('#map', 'map.json', { "actions": false }).then(result => {
+            console.log('Map embedded successfully');
+        }).catch(console.error);
+
+        // Embed the main graph in the placeholder
+        vegaEmbed('#graph', 'graph.json', { "actions": false }).then(result => {
+            console.log('Graph embedded successfully');
+        }).catch(console.error);
     </script>
     
 </body>
