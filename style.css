@@ -13,6 +13,7 @@ body {
     background-color: #1a84b8; /* Medium blue for main heading */
     color: white; /* White text for contrast */
     text-align: center; /* Center the heading */
+    justify-content: flex-start; 
     padding: 10px; /* Padding inside the heading box */
     margin-bottom: 10px; /* Space below the heading */
 }
