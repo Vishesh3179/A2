@@ -26,7 +26,7 @@
     align-items: center; /* Centers text in the text box */
 }
 
-.text-box {
+.ftext-box {
     height: 300px; /* Fixed height for text boxes */
     width: 600px; /* Fixed width for text boxes */
     background-color: #1aa4b8; /* Light blue for text boxes */
