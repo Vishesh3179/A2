@@ -77,17 +77,14 @@
             console.log('Graph embedded successfully');
         }).catch(console.error);
 
-        // Function to update the charts based on the selected state
+        // Function to update the graphs based on selected state
         function updateGraphs() {
-            // Get the selected state value
             const selectedState = document.getElementById('state-select').value;
 
-            // Update the state parameter for each chart
-            const stateParam = {
-                "State": selectedState
-            };
+            // State parameter to pass to all graphs
+            const stateParam = { "State": selectedState };
 
-            // Re-embed each chart with the updated state parameter
+            // Update each chart with the selected state
             vegaEmbed('#pie', 'pie.json', { "actions": false, "params": stateParam }).then(result => {
                 console.log('Pie chart updated successfully');
             }).catch(console.error);
@@ -102,12 +99,7 @@
         }
 
         // Initial graph rendering
-        function renderGraphs() {
-            updateGraphs(); // Initial render with default state
-        }
-
-        // Render the graphs on page load
-        window.onload = renderGraphs;
+        window.onload = updateGraphs; // Call updateGraphs on page load to render initial graphs
     </script>
     
 </body>
