@@ -3,6 +3,7 @@ body {
     font-family: 'Palatino', serif; /* Change Georgia to Palatino */
     margin: 10px;
     line-height: 1.6;
+    justify-content: flex-start; 
     background-color: #e0e0e5; /* Light grey background */
     color: black; /* Default text color */
 }
@@ -13,7 +14,6 @@ body {
     background-color: #1a84b8; /* Medium blue for main heading */
     color: white; /* White text for contrast */
     text-align: center; /* Center the heading */
-    justify-content: flex-start; 
     padding: 10px; /* Padding inside the heading box */
     margin-bottom: 10px; /* Space below the heading */
 }
