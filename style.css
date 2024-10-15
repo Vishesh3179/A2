@@ -17,6 +17,11 @@ body {
     margin-bottom: 10px; /* Space below the heading */
 }
 
+/* Paragraph inside Main Heading */
+.main-heading p {
+    font-family: 'Palatino', serif; /* Palatino for paragraph text */
+}
+
 /* Section Headings */
 h2 {
     font-family: 'Optima', sans-serif; /* Optima for section headings */
