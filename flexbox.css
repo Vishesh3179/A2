@@ -22,7 +22,7 @@
     margin: 5px;
     display: flex;
     justify-content: flex-start;
-    align-items: center; /* Centers text in the text box */
+    align-items: flex-start; /* Centers text in the text box */
 }
 
 .ftext-box {
@@ -33,5 +33,5 @@
     margin: 5px;
     display: flex;
     justify-content: flex-start;
-    align-items: center; /* Centers text in the text box */
+    align-items: flex-start; /* Centers text in the text box */
 }
