@@ -22,6 +22,17 @@
     color: white;
     padding: 10px;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
+    align-items: center; /* Centers text in the text box */
+}
+
+.text-box {
+    height: 300px; /* Fixed height for text boxes */
+    width: 600px; /* Fixed width for text boxes */
+    background-color: #1aa4b8; /* Light blue for text boxes */
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: flex-start;
     align-items: center; /* Centers text in the text box */
 }
