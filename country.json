@@ -58,7 +58,7 @@
     "width": 300,
     "height": 300
   }, {
-    "title": "Active Participants vs Participant/Provider Ratio",
+    "title": "Participant/provider vs participants by disability",
     "data": {"url": "https://raw.githubusercontent.com/Vishesh3179/A2/refs/heads/main/Providers%20by%20disability.csv"},
     "transform": [
       {"filter": "datum.State == (selectedState == 'New South Wales' ? 'NSW' : selectedState == 'Victoria' ? 'VIC' : selectedState == 'Queensland' ? 'QLD' : selectedState == 'South Australia' ? 'SA' : selectedState == 'Western Australia' ? 'WA' : selectedState == 'Tasmania' ? 'TAS' : selectedState == 'Northern Territory' ? 'NT' : selectedState == 'Australian Capital Territory' ? 'ACT' : 'Australia')"},
