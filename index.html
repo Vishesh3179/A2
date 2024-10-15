@@ -36,77 +36,35 @@
     <!-- Toggle Option for State Selection -->
     <div class="toggle-option">
         <label for="state-select">Choose a state:</label>
-        <select id="state-select" onchange="updateGraphs()">
-            <option value="Australia">Australia</option>
-            <option value="New South Wales">New South Wales</option>
-            <option value="Victoria">Victoria</option>
-            <option value="Queensland">Queensland</option>
-            <option value="South Australia">South Australia</option>
-            <option value="Western Australia">Western Australia</option>
-            <option value="Tasmania">Tasmania</option>
-            <option value="Northern Territory">Northern Territory</option>
-            <option value="Australian Capital Territory">Australian Capital Territory</option>
+        <select id="state-select">
+            <option value="state1">State 1</option>
+            <option value="state2">State 2</option>
+            <option value="state3">State 3</option>
         </select>
     </div>
 
-    <!-- Second Flexbox: Contains three charts with text underneath -->
+    <!-- Second Flexbox: Contains three charts from country.json -->
     <div class="flexbox-container">
-        <div class="visual-container">
-            <div id="scatter"></div> <!-- Scatter Chart Placeholder -->
-            <div class="text-box">Text for Scatter Chart.</div>
-        </div>
-        <div class="visual-container">
-            <div id="topfive"></div> <!-- Top Five Disabilities Chart Placeholder -->
-            <div class="text-box">Text for Top Five Disabilities Chart.</div>
-        </div>
-        <div class="visual-container">
-            <div id="pie"></div> <!-- Pie Chart Placeholder -->
-            <div class="text-box">Text for Pie Chart.</div>
+        <div class="visual-container" style="width: 1200px; height: 300px;">
+            <div id="country-charts"></div> <!-- Placeholder for the three charts -->
         </div>
     </div>
 
-    <!-- Embedding the map and graph using Vega-Lite -->
+    <!-- Embedding the map, graph, and country charts using Vega-Lite -->
     <script>
-        // Function to update the charts based on the selected state
-        function updateGraphs() {
-            // Get the selected state value
-            const selectedState = document.getElementById('state-select').value;
-
-            // Update the state parameter for each chart
-            const stateParam = {
-                "State": selectedState
-            };
-
-            // Re-embed each chart with the updated state parameter
-            vegaEmbed('#pie', 'pie.json', { "actions": false, "params": stateParam }).then(result => {
-                console.log('Pie chart updated successfully');
-            }).catch(console.error);
-
-            vegaEmbed('#scatter', 'scatter.json', { "actions": false, "params": stateParam }).then(result => {
-                console.log('Scatter chart updated successfully');
-            }).catch(console.error);
-
-            vegaEmbed('#topfive', 'topfive.json', { "actions": false, "params": stateParam }).then(result => {
-                console.log('Bar chart updated successfully');
-            }).catch(console.error);
-        }
-
-        // Initial graph rendering
-        function renderGraphs() {
-            updateGraphs(); // Initial render with default state
-        }
-
-        // Render the graphs on page load
-        window.onload = renderGraphs;
-
         // Embed the map in the placeholder
         vegaEmbed('#map', 'map.json', { "actions": false }).then(result => {
             console.log('Map embedded successfully');
         }).catch(console.error);
 
-        // Embed the main graph in the placeholder
+        // Embed the graph in the placeholder
         vegaEmbed('#graph', 'graph.json', { "actions": false }).then(result => {
             console.log('Graph embedded successfully');
+        }).catch(console.error);
+        
+        // Embed the country charts in the placeholder
+        vegaEmbed('#country-charts', 'country.json', { "actions": false }).then(result => {
+            console.log('Country charts embedded successfully');
         }).catch(console.error);
     </script>
     
