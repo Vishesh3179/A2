@@ -25,7 +25,7 @@
   "width": 600,
   "height": 300,
   "title": {
-    "text": "Average Funding per Participant per Year",
+    "text": "Average funding per participant over time by region",
     "anchor": "middle",
     "color": "black"
   },
