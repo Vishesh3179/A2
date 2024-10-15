@@ -3,6 +3,7 @@ body {
     font-family: 'Palatino', serif; /* Change Georgia to Palatino */
     margin: 10px;
     line-height: 1.6;
+    text-align: flex-start;
     justify-content: flex-start; 
     background-color: #e0e0e5; /* Light grey background */
     color: black; /* Default text color */
@@ -37,8 +38,9 @@ h2 {
 .map, .chart {
     background-color: #fff; /* White background for visuals */
     border: 1px solid #ccc; /* Border around map and graph placeholders */
+    text-align: center; /* Center the heading */
+    justify-content: flex-start; 
     padding: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
 }
 
 /* Toggle Option Styles */
