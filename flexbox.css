@@ -1,27 +1,32 @@
-/* Flexbox container holding visuals and text underneath */
-.flexbox-container {
+/* Existing styles... */
+
+/* Adjust the text box styles */
+.text-box {
+    background-color: #1aa4b8; /* Light blue for text boxes */
+    color: white; /* White text */
+    padding: 20px; /* Add padding around the text */
+    margin-top: 10px; /* Space between visual elements and text */
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    margin-bottom: 20px; /* Space below flexboxes */
+    flex-direction: column; /* Ensures text boxes stack vertically */
+    justify-content: flex-start; /* Align text to the top */
+    height: 100%; /* Allow text box to grow with its container */
+    box-sizing: border-box; /* Include padding in width/height calculations */
 }
 
-/* Each visual and its corresponding text */
+/* Specific width for the first text box */
+.first-text-box {
+    width: 600px; /* Set width of the first text box to 600px */
+}
+
+/* Adjusting the width of the text boxes in the flexbox */
 .visual-container {
-    flex: 1; /* Allow each container to grow equally */
-    margin: 5px; /* Space between the boxes */
+    flex: 1;
+    margin: 5px;
     display: flex;
     flex-direction: column; /* Stacks visual and text vertically */
 }
 
-/* Updated text box styles for the three boxes */
-.text-box {
-    height: 300px; /* Fixed height for text boxes */
-    width: 400px; /* Fixed width for text boxes */
-    background-color: #1aa4b8; /* Light blue for text boxes */
-    color: white;
-    padding: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center; /* Centers text in the text box */
+/* Ensure visual-container takes available space */
+.visual-container > div {
+    flex: 1; /* Makes map/graph take the full height of the container */
 }
