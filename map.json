@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
-    "text": "Choropleth Map of Active Participants by Region",
+    "text": "Active participants per 10,000 residents by region over time",
     "color": "black",
     "font": "Optima",
     "fontSize": 20,
@@ -120,7 +120,7 @@
           {"field": "Region name", "type": "nominal", "title": "Region"},
           {"field": "Normalised Active Participants (Participants/10000 residents)", "type": "quantitative", "title": "Participants/10,000 residents"},
           {"field": "Year", "type": "quantitative"},
-          {"field": "Population", "type": "quantitative"},
+          {"field": "Population", "type": "nominal"},
           {"field": "Active participants", "type": "quantitative"}
         ]
       }
