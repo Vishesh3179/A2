@@ -7,18 +7,13 @@
   },
   "transform": [
     {
-      "filter": "datum.State == (State == 'New South Wales' ? 'NSW' : State == 'Victoria' ? 'VIC' : State == 'Queensland' ? 'QLD' : State == 'South Australia' ? 'SA' : State == 'Western Australia' ? 'WA' : State == 'Tasmania' ? 'TAS' : State == 'Northern Territory' ? 'NT' : State == 'Australian Capital Territory' ? 'ACT' : 'Australia')"
+      "filter": "datum.State == params.State"
     },
     {
       "aggregate": [
-        {"op": "sum", "field": "Active Participants", "as": "total"},
-        {"op": "count", "field": "Disability", "as": "count"}
+        {"op": "sum", "field": "Active Participants", "as": "total"}
       ],
       "groupby": ["Disability"]
-    },
-    {
-      "calculate": "datum['Active Participants'] / datum['total'] * 100",
-      "as": "percentage"
     }
   ],
   "mark": "arc",
@@ -36,8 +31,7 @@
     },
     "tooltip": [
       {"field": "Disability", "type": "nominal", "title": "Disability Group"},
-      {"field": "total", "type": "quantitative", "title": "Active Participants"},
-      {"field": "percentage", "type": "quantitative", "title": "Percentage"}
+      {"field": "total", "type": "quantitative", "title": "Active Participants"}
     ]
   }
 }
