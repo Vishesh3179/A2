@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
-    "text": "Active participants per 10,000 residents by region over time",
+    "text": "Participants per 10,000 residents by region over time",
     "color": "black",
     "font": "Optima",
     "fontSize": 20,
