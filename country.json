@@ -29,8 +29,7 @@
       "tooltip": [
         {"field": "Age group", "title": "Age Group"},
         {"field": "total", "title": "Active Participants"},
-        {"field": "percent", "title": "% of Total", "format": ".1f"},
-        {"field": "State"}
+        {"field": "percent", "title": "% of Total", "format": ".1f"}
       ]
     },
     "width": 300,
