@@ -1,97 +1,43 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "A pie chart of Active Participants with a state selector.",
+  "description": "A pie chart showing the distribution of active participants by disability group, filtered by the selected state.",
   "data": {
-    "url": "https://raw.githubusercontent.com/Vishesh3179/A2/refs/heads/main/By%20age%20group.csv",
+    "url": "https://raw.githubusercontent.com/Vishesh3179/A2/refs/heads/main/Pie%20chart%20data.csv",
     "format": {"type": "csv"}
   },
-  "config": {
-    "font": "Georgia",
-    "title": {
-      "fontSize": 20,
-      "fontWeight": "bold",
-      "font": "Optima",
-      "color": "black",
-      "anchor": "start",
-      "offset": 10
-    },
-    "axis": {
-      "labelFontSize": 14,
-      "titleFontSize": 16,
-      "labelColor": "black",
-      "titleColor": "black",
-      "titleFont": "Optima"
-    }
-  },
-  "background": "#e0e0e5",
-  "width": 500,
-  "height": 300,
-  "title": {
-    "text": "Active Participants by Age Group",
-    "anchor": "middle",
-    "color": "black"
-  },
-  "params": [
-    {
-      "name": "State",
-      "value": "Australia",
-      "bind": {
-        "input": "select",
-        "options": [
-          "Australia",
-          "New South Wales", 
-          "Victoria", 
-          "Queensland", 
-          "South Australia", 
-          "Western Australia", 
-          "Tasmania", 
-          "Northern Territory", 
-          "Australian Capital Territory"
-        ]
-      }
-    }
-  ],
   "transform": [
     {
       "filter": "datum.State == (State == 'New South Wales' ? 'NSW' : State == 'Victoria' ? 'VIC' : State == 'Queensland' ? 'QLD' : State == 'South Australia' ? 'SA' : State == 'Western Australia' ? 'WA' : State == 'Tasmania' ? 'TAS' : State == 'Northern Territory' ? 'NT' : State == 'Australian Capital Territory' ? 'ACT' : 'Australia')"
     },
     {
       "aggregate": [
-        {
-          "op": "average",
-          "field": "Active Participants",
-          "as": "total"
-        }
+        {"op": "sum", "field": "Active Participants", "as": "total"},
+        {"op": "count", "field": "Disability", "as": "count"}
       ],
-      "groupby": ["Age group"]
+      "groupby": ["Disability"]
     },
     {
-      "window": [{"op": "sum", "field": "total", "as": "TotalParticipants"}]
-    },
-    {
-      "calculate": "datum.total / datum.TotalParticipants * 100",
-      "as": "percent"
+      "calculate": "datum['Active Participants'] / datum['total'] * 100",
+      "as": "percentage"
     }
   ],
+  "mark": "arc",
   "encoding": {
-    "theta": {"field": "total", "type": "quantitative", "stack": true},
-    "color": {"field": "Age group", "type": "nominal", "legend": null},
-    "tooltip": [
-      {"field": "Age group", "type": "nominal", "title": "Age Group"},
-      {"field": "total", "type": "quantitative", "title": "Active Participants"},
-      {"field": "percent", "type": "quantitative", "title": "% of Total", "format": ".1f"},
-      {"field": "State", "type": "nominal", "title": "State"}
-    ]
-  },
-  "layer": [
-    {
-      "mark": {"type": "arc", "outerRadius": 140}
+    "theta": {
+      "field": "total",
+      "type": "quantitative",
+      "title": "Active Participants"
     },
-    {
-      "mark": {"type": "text", "radius": 160},
-      "encoding": {
-        "text": {"field": "Age group", "type": "nominal"}
-      }
-    }
-  ]
+    "color": {
+      "field": "Disability",
+      "type": "nominal",
+      "title": "Disability Group",
+      "scale": {"scheme": "tableau10"}
+    },
+    "tooltip": [
+      {"field": "Disability", "type": "nominal", "title": "Disability Group"},
+      {"field": "total", "type": "quantitative", "title": "Active Participants"},
+      {"field": "percentage", "type": "quantitative", "title": "Percentage"}
+    ]
+  }
 }
