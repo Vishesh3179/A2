@@ -79,26 +79,35 @@
 
         // Function to update the charts based on the selected state
         function updateGraphs() {
+            // Get the selected state value
             const selectedState = document.getElementById('state-select').value;
-            
-            // Update Scatter Chart
-            vegaEmbed('#scatter', 'scatter.json', { "actions": false }).then(result => {
-                console.log('Scatter Chart embedded successfully');
+
+            // Update the state parameter for each chart
+            const stateParam = {
+                "State": selectedState
+            };
+
+            // Re-embed each chart with the updated state parameter
+            vegaEmbed('#pie', 'pie.json', { "actions": false, "params": stateParam }).then(result => {
+                console.log('Pie chart updated successfully');
             }).catch(console.error);
 
-            // Update Top Five Disabilities Chart
-            vegaEmbed('#topfive', 'topfive.json', { "actions": false }).then(result => {
-                console.log('Top Five Disabilities Chart embedded successfully');
+            vegaEmbed('#scatter', 'scatter.json', { "actions": false, "params": stateParam }).then(result => {
+                console.log('Scatter chart updated successfully');
             }).catch(console.error);
 
-            // Update Pie Chart
-            vegaEmbed('#pie', 'pie.json', { "actions": false }).then(result => {
-                console.log('Pie Chart embedded successfully');
+            vegaEmbed('#topfive', 'topfive.json', { "actions": false, "params": stateParam }).then(result => {
+                console.log('Bar chart updated successfully');
             }).catch(console.error);
         }
 
-        // Initial load of the charts
-        updateGraphs();
+        // Initial graph rendering
+        function renderGraphs() {
+            updateGraphs(); // Initial render with default state
+        }
+
+        // Render the graphs on page load
+        window.onload = renderGraphs;
     </script>
     
 </body>
