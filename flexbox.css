@@ -8,7 +8,6 @@
 
 /* Each visual and its corresponding text */
 .visual-container {
-    flex: 1; /* Allow each container to grow equally */
     margin: 5px; /* Space between the boxes */
     display: flex;
     flex-direction: column; /* Stacks visual and text vertically */
