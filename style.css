@@ -1,47 +1,30 @@
-/* Base styles for body */
-body {
-    font-family: 'Palatino', serif; /* Change Georgia to Palatino */
-    margin: 10px;
-    line-height: 1.6;
-    background-color: #e0e0e5; /* Light grey background */
-    color: black; /* Default text color */
-}
+/* Existing styles... */
 
-/* Main Heading and Text Box */
-.main-heading {
-    font-family: 'Optima', sans-serif; /* Optima for main heading */
-    background-color: #1a84b8; /* Medium blue for main heading */
-    color: white; /* White text for contrast */
-    text-align: center; /* Center the heading */
-    padding: 10px; /* Padding inside the heading box */
-    margin-bottom: 10px; /* Space below the heading */
-}
-
-/* Paragraph inside Main Heading */
-.main-heading p {
-    font-family: 'Palatino', serif; /* Palatino for paragraph text */
-}
-
-/* Section Headings */
-h2 {
-    font-family: 'Optima', sans-serif; /* Optima for section headings */
-    background-color: #1a94b8; /* Darker blue for section headings */
-    color: white; /* White text for contrast */
-    text-align: center; /* Center section headings */
-    padding: 10px; /* Padding inside the section headings */
-    margin-bottom: 10px; /* Space below section heading */
-}
-
-/* Map, Graph, and Chart Box Styles */
-.map, .chart {
-    background-color: #fff; /* White background for visuals */
-    border: 1px solid #ccc; /* Border around map and graph placeholders */
+/* Adjust the text box styles */
+.text-box {
+    background-color: #1aa4b8; /* Light blue for text boxes */
+    color: white; /* White text */
     padding: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+    margin-top: 10px; /* Space between visual elements and text */
+    display: flex;
+    flex-direction: column; /* Ensures text boxes stack vertically */
+    justify-content: flex-start; /* Align text to the top */
 }
 
-/* Toggle Option Styles */
-.toggle-option {
-    text-align: center; /* Center-align toggle option */
-    margin: 20px 0; /* Space above and below the toggle */
+/* Specific width for the first text box */
+.first-text-box {
+    width: 600px; /* Set width of the first text box to 600px */
+}
+
+/* Adjusting the width of the text boxes in the flexbox */
+.visual-container {
+    flex: 1;
+    margin: 5px;
+    display: flex;
+    flex-direction: column; /* Stacks visual and text vertically */
+}
+
+/* Ensure visual-container takes available space */
+.visual-container > div {
+    flex: 1; /* Makes map/graph take the full height of the container */
 }
