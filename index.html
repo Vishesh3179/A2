@@ -36,40 +36,69 @@
     <!-- Toggle Option for State Selection -->
     <div class="toggle-option">
         <label for="state-select">Choose a state:</label>
-        <select id="state-select">
-            <option value="state1">State 1</option>
-            <option value="state2">State 2</option>
-            <option value="state3">State 3</option>
+        <select id="state-select" onchange="updateGraphs()">
+            <option value="Australia">Australia</option>
+            <option value="New South Wales">New South Wales</option>
+            <option value="Victoria">Victoria</option>
+            <option value="Queensland">Queensland</option>
+            <option value="South Australia">South Australia</option>
+            <option value="Western Australia">Western Australia</option>
+            <option value="Tasmania">Tasmania</option>
+            <option value="Northern Territory">Northern Territory</option>
+            <option value="Australian Capital Territory">Australian Capital Territory</option>
         </select>
     </div>
 
     <!-- Second Flexbox: Contains three charts with text underneath -->
-    <div class="flexbox-container">
+    <div class="flexbox-container" id="charts-placeholder">
         <div class="visual-container">
-            <div>Chart 1 Placeholder</div>
-            <div class="text-box">Text for Chart 1.</div>
+            <div id="scatter"></div> <!-- Scatter Chart Placeholder -->
+            <div class="text-box">Text for Scatter Chart.</div>
         </div>
         <div class="visual-container">
-            <div>Chart 2 Placeholder</div>
-            <div class="text-box">Text for Chart 2.</div>
+            <div id="topfive"></div> <!-- Top Five Disabilities Chart Placeholder -->
+            <div class="text-box">Text for Top Five Disabilities Chart.</div>
         </div>
         <div class="visual-container">
-            <div>Chart 3 Placeholder</div>
-            <div class="text-box">Text for Chart 3.</div>
+            <div id="pie"></div> <!-- Pie Chart Placeholder -->
+            <div class="text-box">Text for Pie Chart.</div>
         </div>
     </div>
 
     <!-- Embedding the map and graph using Vega-Lite -->
     <script>
         // Embed the map in the placeholder
-        vegaEmbed('#map', 'map.json',{ "actions": false }).then(result => {
+        vegaEmbed('#map', 'map.json', { "actions": false }).then(result => {
             console.log('Map embedded successfully');
         }).catch(console.error);
 
-        // Embed the graph in the placeholder
-        vegaEmbed('#graph', 'graph.json',{ "actions": false }).then(result => {
+        // Embed the main graph in the placeholder
+        vegaEmbed('#graph', 'graph.json', { "actions": false }).then(result => {
             console.log('Graph embedded successfully');
         }).catch(console.error);
+
+        // Function to update the charts based on the selected state
+        function updateGraphs() {
+            const selectedState = document.getElementById('state-select').value;
+            
+            // Update Scatter Chart
+            vegaEmbed('#scatter', 'scatter.json', { "actions": false }).then(result => {
+                console.log('Scatter Chart embedded successfully');
+            }).catch(console.error);
+
+            // Update Top Five Disabilities Chart
+            vegaEmbed('#topfive', 'topfive.json', { "actions": false }).then(result => {
+                console.log('Top Five Disabilities Chart embedded successfully');
+            }).catch(console.error);
+
+            // Update Pie Chart
+            vegaEmbed('#pie', 'pie.json', { "actions": false }).then(result => {
+                console.log('Pie Chart embedded successfully');
+            }).catch(console.error);
+        }
+
+        // Initial load of the charts
+        updateGraphs();
     </script>
     
 </body>
