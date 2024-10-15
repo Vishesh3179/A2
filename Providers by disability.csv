@@ -1,0 +1,145 @@
+﻿State,Disability group,Active providers,Active Participants,Participant/Provider ratio
+ACT,ABI,382,233,0.609947644
+ACT,Autism,849,3974,4.680800942
+ACT,Cerebral Palsy,415,305,0.734939759
+ACT,Developmental delay,220,1217,5.531818182
+ACT,Down Syndrome,360,227,0.630555556
+ACT,Global developmental delay,114,223,1.956140351
+ACT,Hearing Impairment,169,460,2.721893491
+ACT,Intellectual Disability,781,1314,1.682458387
+ACT,Multiple Sclerosis,316,239,0.756329114
+ACT,Other Neurological,474,429,0.905063291
+ACT,Other Physical,503,527,1.047713718
+ACT,Other Sensory/Speech,79,67,0.848101266
+ACT,Psychosocial disability,632,1169,1.849683544
+ACT,Spinal Cord Injury,181,83,0.458563536
+ACT,Stroke,310,154,0.496774194
+ACT,Visual Impairment,165,179,1.084848485
+Australia,ABI,10813,18708,1.730139647
+Australia,Autism,14594,238944,16.37275593
+Australia,Cerebral Palsy,10157,17877,1.760066949
+Australia,Developmental delay,4596,81256,17.6797215
+Australia,Down Syndrome,8385,11645,1.388789505
+Australia,Global developmental delay,3205,17334,5.408424337
+Australia,Hearing Impairment,4829,27589,5.713191137
+Australia,Intellectual Disability,16074,91611,5.699328108
+Australia,Multiple Sclerosis,6817,10838,1.589848907
+Australia,Other Neurological,11236,23246,2.068885724
+Australia,Other Physical,9675,20068,2.074211886
+Australia,Other Sensory/Speech,2146,2001,0.932432432
+Australia,Psychosocial disability,12812,63837,4.982594443
+Australia,Spinal Cord Injury,5700,6044,1.060350877
+Australia,Stroke,7876,9609,1.220035551
+Australia,Visual Impairment,5705,10309,1.807011394
+NSW,ABI,4693,5082,1.08288941
+NSW,Autism,7078,69078,9.759536592
+NSW,Cerebral Palsy,4648,5704,1.227194492
+NSW,Developmental delay,1981,21946,11.07824331
+NSW,Down Syndrome,3617,3745,1.035388443
+NSW,Global developmental delay,1447,6777,4.683483068
+NSW,Hearing Impairment,2154,8529,3.959610028
+NSW,Intellectual Disability,7397,28491,3.851696634
+NSW,Multiple Sclerosis,3202,2947,0.920362274
+NSW,Other Neurological,5009,7316,1.460570972
+NSW,Other Physical,4367,5867,1.34348523
+NSW,Other Sensory/Speech,908,766,0.843612335
+NSW,Psychosocial disability,5845,19029,3.25560308
+NSW,Spinal Cord Injury,2591,1907,0.736009263
+NSW,Stroke,3652,3271,0.895673604
+NSW,Visual Impairment,2606,3260,1.250959325
+NT,ABI,322,316,0.98136646
+NT,Autism,479,1426,2.977035491
+NT,Cerebral Palsy,313,194,0.619808307
+NT,Developmental delay,164,858,5.231707317
+NT,Down Syndrome,198,105,0.53030303
+NT,Global developmental delay,103,231,2.242718447
+NT,Hearing Impairment,153,233,1.522875817
+NT,Intellectual Disability,491,1064,2.16700611
+NT,Multiple Sclerosis,80,28,0.35
+NT,Other Neurological,291,224,0.76975945
+NT,Other Physical,268,195,0.72761194
+NT,Other Sensory/Speech,55,26,0.472727273
+NT,Psychosocial disability,317,599,1.889589905
+NT,Spinal Cord Injury,176,87,0.494318182
+NT,Stroke,251,204,0.812749004
+NT,Visual Impairment,137,79,0.576642336
+QLD,ABI,3246,4252,1.309919901
+QLD,Autism,5122,53731,10.49023819
+QLD,Cerebral Palsy,2841,3844,1.353044703
+QLD,Developmental delay,1317,18959,14.39559605
+QLD,Down Syndrome,2269,2468,1.087703834
+QLD,Global developmental delay,847,3233,3.817001181
+QLD,Hearing Impairment,1206,6459,5.355721393
+QLD,Intellectual Disability,5171,17067,3.300522143
+QLD,Multiple Sclerosis,1580,1877,1.187974684
+QLD,Other Neurological,3220,4980,1.546583851
+QLD,Other Physical,2801,4820,1.720813995
+QLD,Other Sensory/Speech,401,230,0.573566085
+QLD,Psychosocial disability,3821,12315,3.222978278
+QLD,Spinal Cord Injury,1572,1618,1.029262087
+QLD,Stroke,2113,2183,1.033128254
+QLD,Visual Impairment,1259,1912,1.518665608
+SA,ABI,1030,1801,1.748543689
+SA,Autism,2066,23657,11.45062924
+SA,Cerebral Palsy,948,1308,1.379746835
+SA,Developmental delay,597,5300,8.877721943
+SA,Down Syndrome,735,806,1.096598639
+SA,Global developmental delay,431,2143,4.972157773
+SA,Hearing Impairment,503,2021,4.017892644
+SA,Intellectual Disability,1861,8019,4.30897367
+SA,Multiple Sclerosis,566,997,1.761484099
+SA,Other Neurological,1056,1796,1.700757576
+SA,Other Physical,955,1794,1.878534031
+SA,Other Sensory/Speech,376,345,0.917553191
+SA,Psychosocial disability,1126,3936,3.495559503
+SA,Spinal Cord Injury,446,468,1.049327354
+SA,Stroke,590,736,1.247457627
+SA,Visual Impairment,457,823,1.800875274
+TAS,ABI,493,477,0.967545639
+TAS,Autism,1014,5132,5.061143984
+TAS,Cerebral Palsy,530,431,0.813207547
+TAS,Developmental delay,153,1018,6.653594771
+TAS,Down Syndrome,397,304,0.765743073
+TAS,Global developmental delay,91,218,2.395604396
+TAS,Hearing Impairment,238,506,2.12605042
+TAS,Intellectual Disability,921,2715,2.947882736
+TAS,Multiple Sclerosis,317,385,1.214511041
+TAS,Other Neurological,534,517,0.968164794
+TAS,Other Physical,436,407,0.933486239
+TAS,Other Sensory/Speech,62,37,0.596774194
+TAS,Psychosocial disability,632,1166,1.844936709
+TAS,Spinal Cord Injury,247,138,0.558704453
+TAS,Stroke,271,199,0.734317343
+TAS,Visual Impairment,212,207,0.976415094
+VIC,ABI,2856,4874,1.706582633
+VIC,Autism,4937,60262,12.2061981
+VIC,Cerebral Palsy,2710,4228,1.560147601
+VIC,Developmental delay,1546,27170,17.57438551
+VIC,Down Syndrome,2136,2863,1.340355805
+VIC,Global developmental delay,725,3127,4.313103448
+VIC,Hearing Impairment,1298,7022,5.409861325
+VIC,Intellectual Disability,5086,24893,4.894416044
+VIC,Multiple Sclerosis,1929,3313,1.717470192
+VIC,Other Neurological,3035,5626,1.853706755
+VIC,Other Physical,2596,4605,1.773882897
+VIC,Other Sensory/Speech,443,429,0.968397291
+VIC,Psychosocial disability,4084,20145,4.932664055
+VIC,Spinal Cord Injury,1221,1043,0.854217854
+VIC,Stroke,1925,2130,1.106493506
+VIC,Visual Impairment,1493,2951,1.976557267
+WA,ABI,1243,1669,1.342719228
+WA,Autism,2066,21649,10.47870281
+WA,Cerebral Palsy,948,1863,1.965189873
+WA,Developmental delay,597,4779,8.005025126
+WA,Down Syndrome,735,1124,1.529251701
+WA,Global developmental delay,431,1386,3.215777262
+WA,Hearing Impairment,503,2366,4.703777336
+WA,Intellectual Disability,1861,8032,4.315959162
+WA,Multiple Sclerosis,566,1064,1.879858657
+WA,Other Neurological,1056,2356,2.231060606
+WA,Other Physical,955,1850,1.937172775
+WA,Other Sensory/Speech,376,109,0.289893617
+WA,Psychosocial disability,1126,5468,4.856127886
+WA,Spinal Cord Injury,446,701,1.571748879
+WA,Stroke,590,737,1.249152542
+WA,Visual Impairment,457,902,1.973741794
