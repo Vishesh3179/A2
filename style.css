@@ -7,6 +7,8 @@ body {
     justify-content: flex-start; 
     background-color: #e0e0e5; /* Light grey background */
     color: black; /* Default text color */
+    margin-bottom: 15px; /* Space below section heading */
+
 }
 
 /* Main Heading and Text Box */
@@ -31,7 +33,7 @@ h2 {
     color: white; /* White text for contrast */
     text-align: center; /* Center section headings */
     padding: 10px; /* Padding inside the section headings */
-    margin-bottom: 10px; /* Space below section heading */
+    margin-bottom: 15px; /* Space below section heading */
 }
 
 /* Map, Graph, and Chart Box Styles */
@@ -41,6 +43,8 @@ h2 {
     text-align: center; /* Center the heading */
     justify-content: flex-start; 
     padding: 10px;
+    margin-bottom: 15px; /* Space below section heading */
+
 }
 
 /* Toggle Option Styles */
