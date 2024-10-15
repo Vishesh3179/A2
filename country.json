@@ -33,7 +33,7 @@
         {"field": "State"}
       ]
     },
-    "width": 400,
+    "width": 300,
     "height": 300
   },{
     "title": "Top 5 Disabilities by Active Participants",
@@ -55,7 +55,7 @@
         {"field": "State"}
       ]
     },
-    "width": 400,
+    "width": 300,
     "height": 300
   }, {
     "title": "Active Participants vs Participant/Provider Ratio",
@@ -82,7 +82,7 @@
         {"field": "ParticipantProviderRatio", "title": "Participant/Provider Ratio"}
       ]
     },
-    "width": 400,
+    "width": 300,
     "height": 300
   }],
   "config": {
