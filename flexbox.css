@@ -25,8 +25,6 @@
 }
 
 .ftext-box {
-    height: 300px; /* Fixed height for text boxes */
-    width: 600; /* Fixed width for text boxes */
     background-color: #1aa4b8; /* Light blue for text boxes */
     color: white;
     margin: 5px;
