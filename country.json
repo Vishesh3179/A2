@@ -32,7 +32,7 @@
         {"field": "percent", "title": "% of Total", "format": ".1f"}
       ]
     },
-    "width": 300,
+    "width": 350,
     "height": 300
   },{
     "title": "Top 5 disabilities by participants",
@@ -54,7 +54,7 @@
         {"field": "State"}
       ]
     },
-    "width": 300,
+    "width": 350,
     "height": 300
   }, {
     "title": "Participant/provider vs participants by disability",
@@ -81,7 +81,7 @@
         {"field": "ParticipantProviderRatio", "title": "Participant/Provider Ratio"}
       ]
     },
-    "width": 300,
+    "width": 350,
     "height": 300
   }],
   "config": {
