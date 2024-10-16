@@ -64,7 +64,7 @@
       {"calculate": "toNumber(datum['Active Participants'])", "as": "ActiveParticipants"},
       {"calculate": "toNumber(datum['Participant/Provider ratio'])", "as": "ParticipantProviderRatio"}
     ],
-    "mark": {"type": "circle", "size": 200},
+    "mark": {"type": "circle", "size": 200, "clip": true},
     "encoding": {
       "x": {"field": "ActiveParticipants", "type": "quantitative", "title": "Active Participants"},
       "y": {"field": "ParticipantProviderRatio", "type": "quantitative", "title": "Participant/Provider Ratio"},
