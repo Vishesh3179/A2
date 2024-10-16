@@ -19,6 +19,7 @@
     background-color: #1aa4b8; /* Light blue for text boxes */
     color: white;
     margin: 5px;
+    padding: 10px;
     display: flex;
     justify-content: flex-start;
     align-items: flex-start; /* Centers text in the text box */
@@ -27,6 +28,7 @@
 .ftext-box {
     background-color: #1aa4b8; /* Light blue for text boxes */
     color: white;
+    padding: 10px;
     margin: 5px;
     display: flex;
     justify-content: flex-start;
